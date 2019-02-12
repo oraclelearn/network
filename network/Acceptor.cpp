@@ -4,10 +4,17 @@
 
 #include "Acceptor.h"
 
-Acceptor::Acceptor(EventLoop *loop, const InetAddress &listenAddr)
+Acceptor::Acceptor(EventLoop *loop, const string& IPAddress, const string& IPPort )
         : _loop(loop),
-          _acceptorSocket(socket::createNonblockingOrDie()),
+          _acceptorSocket(),
           _acceptorChannel(loop, acceptorSocket_.fd()) {
-    acceptorSocket_.bindAddress
+    acceptorSocket_.bindAddress(IPAddress, IPPort);
+}
+
+void Acceptor::listen() {
+    //启动监听
+    _acceptorSocket.listen();
+    //将channel置为可读
+    _acceptorChannel.enableReading();
 
 }

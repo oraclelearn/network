@@ -4,11 +4,31 @@
 
 #include "Socket.h"
 
-void sockets::createSocket() {
-    int sockfd = ::socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP);
-    if (sockfd < 0) {
-        LOG_SYSFATAL << "sockets::createNonblockingOrDie";
+Socket::Socket() {
+    _socketfd = ::socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP);
+    if (_socketfd < 0) {
+        printf("Socket::Socket error");
     }
-#endif
-    return sockfd;
+}
+
+int Socket::fd() {
+    return _socketfd;
+}
+
+void Socket::bindAddress(const string &IPAddress, const string &IPPort) {
+    struct sockaddr_in servaddr;
+    servaddr.sin_family = AF_INET;
+    servaddr.sin_addr.s_addr = htonl(IPAddress);
+    servaddr.sin_port = htons(IPPort);
+    int ret = ::bind(_socketfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
+    if( ret < 0){
+        printf("Socket::bindAddress error");
+    }
+}
+
+void Socket::listen() {
+    int ret = ::listen(_listenfd, SOMAXCONN);
+    if(ret <0){
+        printf("Socket::listen error");
+    }
 }

@@ -1,6 +1,7 @@
 //
 // Created by chuli on 2019/2/11.
 //
+#include "Socket.h"
 
 #ifndef NETCONNECT_ACCEPTOR_H
 #define NETCONNECT_ACCEPTOR_H

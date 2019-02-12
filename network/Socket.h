@@ -6,11 +6,17 @@
 #define NETCONNECT_SOCKET_H
 
 
-namespace sockets {
+class Socket {
 
-    void createSocket();
+    Socket();
 
+    int fd();
+
+    void bindAddress(const string& IPAddress, const string& IPPort);
+    void listen();
+
+private:
+    int _socketfd;
 };
-
 
 #endif //NETCONNECT_SOCKET_H
