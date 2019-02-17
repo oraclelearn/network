@@ -4,9 +4,9 @@
 
 #include "Epoll.h"
 
-Epoll::Epoll()
-        //create epollfd
-        : _epollfd(::epoll_create(1)){
+Epoll::Epoll(EventLoop *loop)
+        : _loop(loop),
+          _epollfd(::epoll_create(1)) { //create epollfd
     if (_epollfd < 0) {
         printf("Epoll::Epoll error");
     }
@@ -23,9 +23,9 @@ void Epoll::poll(ChannelList &channelList) {
         printf("Epoll::poll error");
         return;
     }
-    for(int i = 0; i < fds; i ++){
-        Channel* channel = static_cast<Channel*>_events[i].data.ptr;
-        channel->setRevents(_events[i].events);
+    for (int i = 0; i < fds; i++) {
+        Channel *channel = static_cast<Channel *>_events[i].data.ptr;
+        channel->set_recevents(_events[i].events);
         channelList.push_back(channel);
     }
 }
@@ -33,13 +33,12 @@ void Epoll::poll(ChannelList &channelList) {
 void Epoll::updateChannel(Channel *channel) {
     int fd = channel->fd();
     //not find in map, add
-    if(_channelsMap.find(fd) == _channelsMap.end()){
+    if (_channelsMap.find(fd) == _channelsMap.end()) {
         _channelsMap[fd] = channel;
         update(EPOLL_CTL_ADD, channel);
     }
-    //find in map, modify
-    else
-    {
+        //find in map, modify
+    else {
         _channelsMap[fd] = channel;
         update(EPOLL_CTL_MOD, channel);
     }
@@ -48,25 +47,26 @@ void Epoll::updateChannel(Channel *channel) {
 void Epoll::removeChannel(Channel *channel) {
     int fd = channel->fd();
     //not find in map, return
-    if(_channelsMap.find(fd) == _channelsMap.end()){
+    if (_channelsMap.find(fd) == _channelsMap.end()) {
         return;
     }
-    //find in map, delete
-    else
-    {
+        //find in map, delete
+    else {
         _channelsMap.erase(fd);
         update(EPOLL_CTL_DEL, channel);
     }
 }
 
 void Epoll::update(int operation, Channel *channel) {
+    //initialize the event
     struct epoll_event event;
-    memset(&event,0, sizeof(event));
-    event.envents = channel->events();
+    memset(&event, 0, sizeof(event));
+    event.envents = channel->setevents();
     event.data.ptr = channel;
     int fd = channel->fd();
 
-    if((::epoll_ctl(epollfd_, operation, fd, &event) < 0){
+    //add event to epoll
+    if ((::epoll_ctl(epollfd_, operation, fd, &event) < 0) {
         printf("Epoll::update error");
     }
 }

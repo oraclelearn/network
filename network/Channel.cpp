@@ -8,8 +8,8 @@
 Channel::Channel(Eventloop *loop, int socketfd) :
         _loop(loop),
         _socketfd(socketfd),
-        _events(0),
-        _revents(0) {
+        _set_events(0),
+        _rec_events(0) {
 
 }
 
@@ -17,32 +17,59 @@ int Channel::fd() {
     return _socketfd;
 }
 
-int Channel::events() {
-    return _events;
+int Channel::get_setevents() {
+    return _set_events;
 }
 
-int Channel::revents() {
-    return _revents;
+int Channel::set_recevents(int recevents) {
+    _rec_events = recevents;
 }
 
 void Channel::enableReading() {
-    _events |= (POLLIN | POLLPRI);
+    _set_events |= (POLLIN | POLLPRI);
     _loop->updateChannel();
 }
 
 void Channel::enableWriting() {
-    _events |= POLLOUT;
+    _set_events |= POLLOUT;
     _loop->updateChannel();
 }
 
 void Channel::disableReading() {
-    _evnets &= ~(POLLIN | POLLPRI);
+    _set_events &= ~(POLLIN | POLLPRI);
     _loop->updateChannel();
 }
 
 void Channel::disableWriting() {
-    _events &= ~POLLOUT;
+    _set_events &= ~POLLOUT;
     _loop->updateChannel();
 }
 
+void Channel::setReadCallback(EventCallback readCallback) {
+    _readCallback = readCallback;
+}
 
+void Channel::setWriteCallback(EventCallback writeCallback) {
+    _writeCallback = writeCallback;
+}
+
+void Channel::setErrorCallback(EventCallback errorCallback) {
+    _errorCallback = errorCallback;
+}
+
+void Channel::handleEvent() {
+    if(_rec_events & (POLLERR |POLLNVAL)){
+        if(_errorCallback)
+            _errorCallback();
+    }
+
+    if(_rec_events & (POLLIN | POLLPRI | POLLRDHUP)){
+        if(_readCallback)
+            _readCallback();
+    }
+
+    if(_rec_events & POLLOUT){
+        if(_writeCallback)
+            _writeCallback();
+    }
+}

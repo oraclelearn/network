@@ -16,24 +16,30 @@ public:
     void disableReading();
     void disableWriting();
 
-    //getter
+    //getter and setter
     int fd();
-    int events();
-    int revents();
+    int get_setevents();
+    int set_recevents(int recevents);
+
+    //set the callback functions
+    void handleEvent();
+    void setReadCallback(EventCallback readCallback);
+    void setWriteCallback(EventCallback writeCallback);
+    void setErrorCallback(EventCallback errorCallback);
 
 private:
     //loop and file discriptor
     int _socketfd;
     EventLoop* _loop;
 
-    //event setter
-    int _events;
-    int _revents;
+    //events
+    int _set_events;    //the events that been set
+    int _rec_events;   //the events that been received from epoll
 
     //callback function
     EventCallback _readCallback;
     EventCallback  _writeCallback;
-
+    EventCallback _errorCallback;
 };
 
 

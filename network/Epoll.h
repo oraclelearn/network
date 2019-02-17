@@ -11,7 +11,7 @@
 
 class Epoll {
 public:
-    Epoll();
+    Epoll(EventLoop *loop);
     ~Epoll();
 
     //functions
