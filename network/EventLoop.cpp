@@ -21,6 +21,27 @@ void EventLoop::loop() {
         for (Channel *channel : activeChannels) {
             channel->handleEvent();
         }
+        doPendingCallback();
     }
 }
 
+void EventLoop::updateChannel(Channel *channel) {
+    _epoller->updateChannel(channel);
+}
+
+void EventLoop::removeChannel(Channel *channel) {
+    _epoller->removeChannel(channel);
+}
+
+void EventLoop::handleInLoop(EventCallback callback) {
+    _pendingCallbacks.push_back(callback);
+}
+
+void EventLoop::doPendingCallback() {
+    EventCallbackList list;
+    _pendingCallbacks.swap(list);
+
+    for( const EventCallback& callback : list){
+        callback();
+    }
+}

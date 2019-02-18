@@ -15,11 +15,18 @@ public:
 
     //functions
     void loop();
+    void updateChannel(Channel* channel);
+    void removeChannel(Channel* channel);
+    void handleInLoop(EventCallback callback);
 
 private:
     Epoll* _epoller;
     bool _quit;
 
+    EventCallbackList _pendingCallbacks;
+
+    //functions
+    void doPendingCallback();
 };
 
 

@@ -27,22 +27,22 @@ int Channel::set_recevents(int recevents) {
 
 void Channel::enableReading() {
     _set_events |= (POLLIN | POLLPRI);
-    _loop->updateChannel();
+    _loop->updateChannel(this);
 }
 
 void Channel::enableWriting() {
     _set_events |= POLLOUT;
-    _loop->updateChannel();
+    _loop->updateChannel(this);
 }
 
 void Channel::disableReading() {
     _set_events &= ~(POLLIN | POLLPRI);
-    _loop->updateChannel();
+    _loop->updateChannel(this);
 }
 
 void Channel::disableWriting() {
     _set_events &= ~POLLOUT;
-    _loop->updateChannel();
+    _loop->updateChannel(this);
 }
 
 void Channel::setReadCallback(EventCallback readCallback) {
