@@ -11,11 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4041b13d-2373-4c77-adba-85d226acfe7b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Acceptor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/Acceptor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Acceptor.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/Acceptor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/NetworkType.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/NetworkType.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Socket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/Socket.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Socket.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/Socket.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Socket.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+            <state relative-caret-position="242">
+              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -215,7 +210,7 @@
       <workItem from="1550042860915" duration="2717000" />
       <workItem from="1550108006879" duration="9602000" />
       <workItem from="1550565593728" duration="506000" />
-      <workItem from="1550583100567" duration="2493000" />
+      <workItem from="1550583100567" duration="2541000" />
     </task>
     <task id="LOCAL-00001" summary="first day code">
       <created>1549982355585</created>
@@ -238,11 +233,18 @@
       <option name="project" value="LOCAL" />
       <updated>1550482753811</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="eventloop">
+      <created>1550589316225</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1550589316226</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41438000" />
+    <option name="totallyTimeSpent" value="41486000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -275,7 +277,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first day code" />
     <MESSAGE value="eventloop" />
-    <option name="LAST_COMMIT_MESSAGE" value="eventloop" />
+    <MESSAGE value="acceptor" />
+    <option name="LAST_COMMIT_MESSAGE" value="acceptor" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://D:/学习/muduo学习/muduo-master/muduo/net/Timer.cc">
@@ -390,8 +393,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Socket.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+        <state relative-caret-position="242">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
