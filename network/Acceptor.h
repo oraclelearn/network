@@ -2,6 +2,8 @@
 // Created by chuli on 2019/2/11.
 //
 #include "Socket.h"
+#include "Channel.h"
+#include "NetworkType.h"
 
 #ifndef NETCONNECT_ACCEPTOR_H
 #define NETCONNECT_ACCEPTOR_H
@@ -18,6 +20,7 @@ class Acceptor {
 
     //handle accept connection
     void handleRead();
+    void setNewConnection(NewConnection newConnection);
 
 private:
     //loop pointer
@@ -26,6 +29,9 @@ private:
     //socket and channel
     Socket _acceptorSocket;
     Channel _acceptorChannel;
+
+    //callback functions
+    NewConnection _newConnection;
 };
 
 

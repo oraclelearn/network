@@ -17,6 +17,7 @@ int Socket::fd() {
 
 void Socket::bindAddress(const string &IPAddress, const string &IPPort) {
     struct sockaddr_in servaddr;
+    memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(IPAddress);
     servaddr.sin_port = htons(IPPort);
@@ -31,4 +32,18 @@ void Socket::listen() {
     if(ret <0){
         printf("Socket::listen error");
     }
+}
+
+int Socket::accept() {
+    struct  sockaddr_in clientaddr;
+    memset(&clientaddr, 0, sizeof(clientaddr));
+    socklen_t clilen = sizeof(struct sockaddr_in)
+    int connfd = ::accept(_socketfd, (sockaddr* )&clientaddr, (socklen_t*)&clilen);
+    if(connfd > 0){
+        printf("new connection from client [%s] [%s]", &cliaddr.sin_addr, &cliaddr.sin_port);
+    }
+    else{
+        printf("Socket::accept error");
+    }
+    return connfd;
 }

@@ -15,5 +15,6 @@ typedef std::vector<struct epoll_event> EpollEventList;
 //callback definition
 typedef std::function<void()> EventCallback;
 typedef std::vector<EventCallback > EventCallbackList;
+typedef std::fucntion<void(int sockfd)> NewConnection;
 
 #endif //NETWORK_NETWORKTYPE_H

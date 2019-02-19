@@ -9,6 +9,7 @@ Acceptor::Acceptor(EventLoop *loop, const string& IPAddress, const string& IPPor
           _acceptorSocket(),
           _acceptorChannel(loop, acceptorSocket_.fd()) {
     acceptorSocket_.bindAddress(IPAddress, IPPort);
+    _acceptorChannel.setReadCallback(std::bind(Acceptor::handleRead()),this);
 }
 
 void Acceptor::listen() {
@@ -16,5 +17,23 @@ void Acceptor::listen() {
     _acceptorSocket.listen();
     //将channel置为可读
     _acceptorChannel.enableReading();
-
 }
+
+void Acceptor::setNewConnection(NewConnection newConnection) {
+    _newConnection = newConnection;
+}
+
+void Acceptor::handleRead() {
+    struct sockaddr_in clientSockfd;
+    int clientfd = _acceptorSocket.accept();
+    if(clientfd > 0){
+        if(_newConnection){
+            _newConnection(clientfd);
+        }
+        else
+        {
+
+        }
+    }
+}
+
