@@ -4,12 +4,12 @@
 
 #include "Acceptor.h"
 
-Acceptor::Acceptor(EventLoop *loop, const string& IPAddress, const string& IPPort )
+Acceptor::Acceptor(EventLoop *loop, uint16_t port)
         : _loop(loop),
           _acceptorSocket(),
           _acceptorChannel(loop, acceptorSocket_.fd()) {
-    acceptorSocket_.bindAddress(IPAddress, IPPort);
-    _acceptorChannel.setReadCallback(std::bind(Acceptor::handleRead()),this);
+    acceptorSocket_.bindAddress(port);
+    _acceptorChannel.setReadCallback(std::bind(Acceptor::handleRead()), this);
 }
 
 void Acceptor::listen() {
@@ -26,13 +26,11 @@ void Acceptor::setNewConnection(NewConnection newConnection) {
 void Acceptor::handleRead() {
     struct sockaddr_in clientSockfd;
     int clientfd = _acceptorSocket.accept();
-    if(clientfd > 0){
-        if(_newConnection){
+    if (clientfd > 0) {
+        if (_newConnection) {
             _newConnection(clientfd);
-        }
-        else
-        {
-
+        } else {
+            _acceptorSocket.close(clientfd);
         }
     }
 }

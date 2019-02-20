@@ -14,12 +14,15 @@ class Socket {
     int fd();
 
     //for acceptor
-    void bindAddress(const string& IPAddress, const string& IPPort);
+    void bindAddress(const uint16_t port);
+
     void listen();
+
     int accept();
 
     //for connections
-    void close();
+    void close(int clientfd);
+
 private:
     int _socketfd;
 };

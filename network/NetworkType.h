@@ -17,4 +17,7 @@ typedef std::function<void()> EventCallback;
 typedef std::vector<EventCallback > EventCallbackList;
 typedef std::fucntion<void(int sockfd)> NewConnection;
 
+//TcpConnections
+typedef  std::map<int fd, TcpConnection* conn> ConnectionMap;
+
 #endif //NETWORK_NETWORKTYPE_H

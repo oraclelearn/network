@@ -15,35 +15,41 @@ int Socket::fd() {
     return _socketfd;
 }
 
-void Socket::bindAddress(const string &IPAddress, const string &IPPort) {
+void Socket::bindAddress(uint16_t port) {
     struct sockaddr_in servaddr;
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
-    servaddr.sin_addr.s_addr = htonl(IPAddress);
-    servaddr.sin_port = htons(IPPort);
+    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    servaddr.sin_port = htons(port);
     int ret = ::bind(_socketfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
-    if( ret < 0){
+    if (ret < 0) {
         printf("Socket::bindAddress error");
     }
 }
 
 void Socket::listen() {
     int ret = ::listen(_listenfd, SOMAXCONN);
-    if(ret <0){
+    if (ret < 0) {
         printf("Socket::listen error");
     }
 }
 
 int Socket::accept() {
-    struct  sockaddr_in clientaddr;
+    struct sockaddr_in clientaddr;
     memset(&clientaddr, 0, sizeof(clientaddr));
     socklen_t clilen = sizeof(struct sockaddr_in)
-    int connfd = ::accept(_socketfd, (sockaddr* )&clientaddr, (socklen_t*)&clilen);
-    if(connfd > 0){
+    int connfd = ::accept(_socketfd, (sockaddr * ) & clientaddr, (socklen_t * ) & clilen);
+    if (connfd > 0) {
         printf("new connection from client [%s] [%s]", &cliaddr.sin_addr, &cliaddr.sin_port);
-    }
-    else{
+    } else {
         printf("Socket::accept error");
     }
     return connfd;
+}
+
+void Socket::close(int clientfd) {
+    int ret = ::close(clientfd);
+    if (ret < 0) {
+        printf("Socket::close");
+    }
 }
