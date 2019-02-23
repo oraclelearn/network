@@ -53,16 +53,7 @@ void Channel::setWriteCallback(EventCallback writeCallback) {
     _writeCallback = writeCallback;
 }
 
-void Channel::setErrorCallback(EventCallback errorCallback) {
-    _errorCallback = errorCallback;
-}
-
 void Channel::handleEvent() {
-    if(_rec_events & (POLLERR |POLLNVAL)){
-        if(_errorCallback)
-            _errorCallback();
-    }
-
     if(_rec_events & (POLLIN | POLLPRI | POLLRDHUP)){
         if(_readCallback)
             _readCallback();

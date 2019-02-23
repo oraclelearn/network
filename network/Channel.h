@@ -25,7 +25,6 @@ public:
     void handleEvent();
     void setReadCallback(EventCallback readCallback);
     void setWriteCallback(EventCallback writeCallback);
-    void setErrorCallback(EventCallback errorCallback);
 
 private:
     //loop and file discriptor
@@ -39,7 +38,6 @@ private:
     //callback function
     EventCallback _readCallback;
     EventCallback  _writeCallback;
-    EventCallback _errorCallback;
 };
 
 

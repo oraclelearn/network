@@ -11,11 +11,18 @@
 class TcpServer {
 public:
     TcpServer(EventLoop* loop, uint16_t port);
+    ~TcpServer();
+
+    //funcitons
+    void start();
+    void onConnected(int clientfd);
 
 private:
     EventLoop* _loop;
     Acceptor* _pacceptor;
 
+    //save the connections
+    ConnectionMap _connMap;
 
 };
 
