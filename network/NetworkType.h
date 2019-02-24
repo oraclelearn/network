@@ -20,4 +20,7 @@ typedef std::fucntion<void(int sockfd)> NewConnection;
 //TcpConnections
 typedef  std::map<int fd, TcpConnection* conn> ConnectionMap;
 
+static const int MAX_EVENTS = 500;
+static const int MAX_LINE = 1024;
+
 #endif //NETWORK_NETWORKTYPE_H

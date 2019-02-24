@@ -14,10 +14,14 @@ public:
     //functions
     void handleRead();
     void handleWtite();
+    void send();
 
 private:
     Channel* _connChannel;
     EventLoop* _loop;
+
+    //functions
+    void sendInLoop();
 };
 
 

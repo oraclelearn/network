@@ -14,7 +14,7 @@ TcpConnection::TcpConnection(EventLoop *loop, int clientfd)
 
 void TcpConnection::handleRead(){
     int sockfd = _connChannel->fd();
-
+    de
 }
 void TcpConnection::handleWtite(){
 

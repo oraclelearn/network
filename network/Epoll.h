@@ -27,7 +27,6 @@ private:
     ChannelMap _channelsMap;
 
     //save the events of the poll
-    const int  MAX_EVENTS = 500;
     struct epoll_event _events[MAX_EVENTS];
 
     EventLoop* _loop;
