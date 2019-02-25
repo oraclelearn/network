@@ -16,10 +16,13 @@ public:
     //funcitons
     void start();
     void onConnected(int clientfd);
+    void setMessageCallback(MessageCallbak msgCallback);
 
 private:
     EventLoop* _loop;
     Acceptor* _pacceptor;
+
+    MessageCallback _messageCallback;
 
     //save the connections
     ConnectionMap _connMap;

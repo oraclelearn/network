@@ -10,14 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4041b13d-2373-4c77-adba-85d226acfe7b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/network/StringBuffer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/network/StringBuffer.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Epoll.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/Epoll.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/Acceptor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/Acceptor.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/NetworkType.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/NetworkType.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/Socket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/Socket.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/Socket.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/Socket.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/StringBuffer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/StringBuffer.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/TcpConnection.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/TcpConnection.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/TcpConnection.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/TcpConnection.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/TcpServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/TcpServer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/TcpServer.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/TcpServer.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,23 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/Acceptor.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-              <folding>
-                <element signature="e#40#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/TcpConnection.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+            <state relative-caret-position="413">
+              <caret line="36" column="38" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="38" />
               <folding>
                 <element signature="e#41#67#0" expanded="true" />
               </folding>
@@ -53,37 +43,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/StringBuffer.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/network/StringBuffer.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/Channel.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/TcpConnection.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            <state relative-caret-position="138">
+              <caret line="19" column="55" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/NetworkType.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="18" column="79" selection-start-line="18" selection-start-column="79" selection-end-line="18" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/StringBuffer.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/Socket.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/Socket.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-150">
+              <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -91,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/TcpServer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="312">
+              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding>
                 <element signature="e#41#63#0" expanded="true" />
               </folding>
@@ -103,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/TcpServer.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="66">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding>
                 <element signature="e#98#122#0" expanded="true" />
               </folding>
@@ -113,13 +112,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/Epoll.h">
+        <entry file="file://$PROJECT_DIR$/network/Acceptor.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="29" column="41" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="41" />
-              <folding>
-                <element signature="e#40#60#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="347">
+              <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -154,6 +150,9 @@
       <find>bindAddress</find>
       <find>loop</find>
       <find>MAX_EVENTS</find>
+      <find>close</find>
+      <find>memset</find>
+      <find>MAX_LINE</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,19 +170,19 @@
         <option value="$PROJECT_DIR$/network/EventLoop.h" />
         <option value="$PROJECT_DIR$/network/EventLoop.cpp" />
         <option value="$PROJECT_DIR$/network/Acceptor.h" />
+        <option value="$PROJECT_DIR$/network/Channel.h" />
+        <option value="$PROJECT_DIR$/network/Channel.cpp" />
+        <option value="$PROJECT_DIR$/network/Epoll.h" />
+        <option value="$PROJECT_DIR$/network/StringBuffer.h" />
+        <option value="$PROJECT_DIR$/network/StringBuffer.cpp" />
         <option value="$PROJECT_DIR$/network/Acceptor.cpp" />
         <option value="$PROJECT_DIR$/network/Socket.h" />
         <option value="$PROJECT_DIR$/network/Socket.cpp" />
-        <option value="$PROJECT_DIR$/network/TcpServer.cpp" />
-        <option value="$PROJECT_DIR$/network/TcpServer.h" />
-        <option value="$PROJECT_DIR$/network/Channel.h" />
-        <option value="$PROJECT_DIR$/network/Channel.cpp" />
-        <option value="$PROJECT_DIR$/network/TcpConnection.cpp" />
-        <option value="$PROJECT_DIR$/network/Epoll.h" />
         <option value="$PROJECT_DIR$/network/NetworkType.h" />
         <option value="$PROJECT_DIR$/network/TcpConnection.h" />
-        <option value="$PROJECT_DIR$/network/StringBuffer.cpp" />
-        <option value="$PROJECT_DIR$/network/StringBuffer.h" />
+        <option value="$PROJECT_DIR$/network/TcpConnection.cpp" />
+        <option value="$PROJECT_DIR$/network/TcpServer.h" />
+        <option value="$PROJECT_DIR$/network/TcpServer.cpp" />
       </list>
     </option>
   </component>
@@ -268,7 +267,8 @@
       <workItem from="1550565593728" duration="506000" />
       <workItem from="1550583100567" duration="7688000" />
       <workItem from="1550926453302" duration="3113000" />
-      <workItem from="1551016121110" duration="3751000" />
+      <workItem from="1551016121110" duration="3807000" />
+      <workItem from="1551076339160" duration="3507000" />
     </task>
     <task id="LOCAL-00001" summary="first day code">
       <created>1549982355585</created>
@@ -312,17 +312,24 @@
       <option name="project" value="LOCAL" />
       <updated>1550929104569</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="StringBuffer">
+      <created>1551020159370</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1551020159370</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53497000" />
+    <option name="totallyTimeSpent" value="57060000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2659091" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26969698" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -336,7 +343,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3287037" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="CMake" order="11" visible="true" weight="0.16666667" />
+      <window_info anchor="bottom" id="CMake" order="11" weight="0.16512346" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -352,7 +359,8 @@
     <MESSAGE value="acceptor" />
     <MESSAGE value="tcpserver" />
     <MESSAGE value="Tcpconnection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tcpconnection" />
+    <MESSAGE value="StringBuffer" />
+    <option name="LAST_COMMIT_MESSAGE" value="StringBuffer" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://D:/学习/muduo学习/muduo-master/muduo/net/Timer.cc">
@@ -403,16 +411,16 @@
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/Acceptor.cpp">
+    <entry file="file://$PROJECT_DIR$/network/Epoll.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="34" />
+        <state relative-caret-position="153">
+          <caret line="20" column="56" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Acceptor.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state>
           <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
           <folding>
             <element signature="e#40#59#0" expanded="true" />
@@ -427,30 +435,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/Channel.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Socket.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Socket.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/network/Epoll.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
+        <state relative-caret-position="594">
           <caret line="29" column="41" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="41" />
           <folding>
             <element signature="e#40#60#0" expanded="true" />
@@ -458,24 +445,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/Epoll.cpp">
+    <entry file="file://$PROJECT_DIR$/network/Channel.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="20" column="56" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="56" />
+        <state relative-caret-position="1210">
+          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/StringBuffer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Acceptor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Socket.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Socket.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/StringBuffer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/NetworkType.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        <state relative-caret-position="314">
+          <caret line="18" column="79" selection-start-line="18" selection-start-column="79" selection-end-line="18" selection-end-column="79" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/TcpServer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="66">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding>
             <element signature="e#98#122#0" expanded="true" />
           </folding>
@@ -484,8 +506,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/TcpServer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        <state relative-caret-position="312">
+          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding>
             <element signature="e#41#63#0" expanded="true" />
           </folding>
@@ -494,32 +516,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/TcpConnection.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="138">
+          <caret line="19" column="55" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/TcpConnection.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        <state relative-caret-position="413">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="38" />
           <folding>
             <element signature="e#41#67#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/StringBuffer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/StringBuffer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
         </state>
       </provider>
     </entry>

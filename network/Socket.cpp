@@ -46,10 +46,3 @@ int Socket::accept() {
     }
     return connfd;
 }
-
-void Socket::close(int clientfd) {
-    int ret = ::close(clientfd);
-    if (ret < 0) {
-        printf("Socket::close");
-    }
-}

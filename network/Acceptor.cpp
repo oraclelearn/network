@@ -30,7 +30,7 @@ void Acceptor::handleRead() {
         if (_newConnection) {
             _newConnection(clientfd);
         } else {
-            _acceptorSocket.close(clientfd);
+            ::close(clientfd);
         }
     }
 }

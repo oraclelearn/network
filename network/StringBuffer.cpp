@@ -16,12 +16,12 @@ const char* StringBuffer::peek() {
     return _buf.c_str();
 }
 
-void StringBuffer::append(const string &str) {
-    _buf.append(data);
-}
-
 int StringBuffer::readableBytes() {
     return _buf.size();
+}
+
+void StringBuffer::append(const string &str) {
+    _buf.append(data);
 }
 
 void StringBuffer::retrieve(int len) {

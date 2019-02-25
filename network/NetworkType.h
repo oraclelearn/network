@@ -15,7 +15,8 @@ typedef std::vector<struct epoll_event> EpollEventList;
 //callback definition
 typedef std::function<void()> EventCallback;
 typedef std::vector<EventCallback > EventCallbackList;
-typedef std::fucntion<void(int sockfd)> NewConnection;
+typedef std::fucntion<void(int)> NewConnection;
+Typedef std::function<void(TcpConnection* conn, StringBuffer*)> MessageCallbak;
 
 //TcpConnections
 typedef  std::map<int fd, TcpConnection* conn> ConnectionMap;

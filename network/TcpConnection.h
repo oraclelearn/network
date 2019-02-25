@@ -16,9 +16,17 @@ public:
     void handleWtite();
     void send();
 
+    //on functions
+    void setMessageCallback(MessageCallback msgCallback);
+
 private:
     Channel* _connChannel;
     EventLoop* _loop;
+
+    StringBuffer _inBuffer;
+    StringBuffer _outBuffer;
+
+    MessageCallback _messageCallback;
 
     //functions
     void sendInLoop();

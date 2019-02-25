@@ -20,9 +20,6 @@ class Socket {
 
     int accept();
 
-    //for connections
-    void close(int clientfd);
-
 private:
     int _socketfd;
 };
