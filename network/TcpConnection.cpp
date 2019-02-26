@@ -63,7 +63,6 @@ void TcpConnection::sendInLoop(const string &msg) {
         if(!_connChannel->isWritingCapable()){
             _connChannel->enableWriting();
         }
-
     }
 }
 
