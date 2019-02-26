@@ -70,7 +70,3 @@ void TcpConnection::sendInLoop(const string &msg) {
 void TcpConnection::setMessageCallback(MessageCallback msgCallback) {
     _messageCallback = msgCallback;
 }
-
-void TcpConnection::handleWtite() {
-
-}
