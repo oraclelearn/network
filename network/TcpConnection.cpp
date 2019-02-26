@@ -33,6 +33,40 @@ void TcpConnection::handleRead() {
     }
 }
 
+void TcpConnection::handleWtite() {
+    int sockfd = _connChannel->fd();
+    if (_connChannel->isWritingCapable()) {
+        int writelength = ::write(sockfd, _outBuffer.peek(),_outBuffer.readableBytes());
+        if(writelength > 0){
+            _outBuffer.retrieve(writelength);
+            if(_outBuffer.readableBytes() == 0){
+                _connChannel->disableWriting();
+            }
+        }
+    }
+}
+
+void TcpConnection::send(const string& msg) {
+    sendInLoop(msg);
+}
+
+void TcpConnection::sendInLoop(const string &msg) {
+    int writelen = 0;
+    int sockfd = _connChannel->fd();
+    //if buffer is empty, write directly
+    if(_outBuffer.readableBytes() == 0){
+        int writelength = ::write(sockfd, msg.c_str(), msg.size());
+    }
+    //after write, there is something left
+    if(writelen< msg.size()){
+        _outBuffer.append(msg.substr(writelen, msg.size()));
+        if(!_connChannel->isWritingCapable()){
+            _connChannel->enableWriting();
+        }
+
+    }
+}
+
 
 void TcpConnection::setMessageCallback(MessageCallback msgCallback) {
     _messageCallback = msgCallback;

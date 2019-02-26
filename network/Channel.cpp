@@ -21,6 +21,10 @@ int Channel::get_setevents() {
     return _set_events;
 }
 
+bool Channel::isWritingCapable(){
+    return _set_events&POLLOUT;
+}
+
 int Channel::set_recevents(int recevents) {
     _rec_events = recevents;
 }

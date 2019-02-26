@@ -16,6 +16,8 @@ public:
     void disableReading();
     void disableWriting();
 
+    bool isWritingCapable();
+
     //getter and setter
     int fd();
     int get_setevents();

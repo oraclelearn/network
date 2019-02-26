@@ -5,23 +5,27 @@
 #ifndef NETWORK_TCPCONNECTION_H
 #define NETWORK_TCPCONNECTION_H
 
+#include "StringBuffer.h"
 
 class TcpConnection {
 public:
-    TcpConnection(EventLoop* loop, int clientfd);
+    TcpConnection(EventLoop *loop, int clientfd);
+
     ~TcpConnection();
 
     //functions
     void handleRead();
+
     void handleWtite();
-    void send();
+
+    void send(const string &msg);
 
     //on functions
     void setMessageCallback(MessageCallback msgCallback);
 
 private:
-    Channel* _connChannel;
-    EventLoop* _loop;
+    Channel *_connChannel;
+    EventLoop *_loop;
 
     StringBuffer _inBuffer;
     StringBuffer _outBuffer;
@@ -29,7 +33,7 @@ private:
     MessageCallback _messageCallback;
 
     //functions
-    void sendInLoop();
+    void sendInLoop(const string& msg);
 };
 
 
