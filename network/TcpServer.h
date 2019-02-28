@@ -17,12 +17,14 @@ public:
     void start();
     void onConnected(int clientfd);
     void setMessageCallback(MessageCallbak msgCallback);
+    void setCompleteCallback(CompleteCallback completeCallback);
 
 private:
     EventLoop* _loop;
     Acceptor* _pacceptor;
 
     MessageCallback _messageCallback;
+    CompleteCallback  _completeCallback;
 
     //save the connections
     ConnectionMap _connMap;

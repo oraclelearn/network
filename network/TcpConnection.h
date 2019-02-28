@@ -6,6 +6,7 @@
 #define NETWORK_TCPCONNECTION_H
 
 #include "StringBuffer.h"
+#include "NetworkType.h"
 
 class TcpConnection {
 public:
@@ -22,6 +23,7 @@ public:
 
     //on functions
     void setMessageCallback(MessageCallback msgCallback);
+    void setCompleteCallback(CompleteCallback completeCallback);
 
 private:
     Channel *_connChannel;
@@ -31,6 +33,7 @@ private:
     StringBuffer _outBuffer;
 
     MessageCallback _messageCallback;
+    CompleteCallback _completeCallback;
 
     //functions
     void sendInLoop(const string& msg);

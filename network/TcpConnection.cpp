@@ -12,6 +12,7 @@ TcpConnection::TcpConnection(EventLoop *loop, int clientfd)
     _connChannel->setWriteCallback(std::bind(TcpConnection::handleWtite, this));
 }
 
+//when client send data to server
 void TcpConnection::handleRead() {
     int sockfd = _connChannel->fd();
     char tmpstr[MAX_LINE];
@@ -33,6 +34,7 @@ void TcpConnection::handleRead() {
     }
 }
 
+//when fd can be write, so should be shutdown when write complete
 void TcpConnection::handleWtite() {
     int sockfd = _connChannel->fd();
     if (_connChannel->isWritingCapable()) {
@@ -41,11 +43,13 @@ void TcpConnection::handleWtite() {
             _outBuffer.retrieve(writelength);
             if(_outBuffer.readableBytes() == 0){
                 _connChannel->disableWriting();
+                _completeCallback();
             }
         }
     }
 }
 
+//called by server when responding to client
 void TcpConnection::send(const string& msg) {
     sendInLoop(msg);
 }
@@ -56,6 +60,7 @@ void TcpConnection::sendInLoop(const string &msg) {
     //if buffer is empty, write directly
     if(_outBuffer.readableBytes() == 0){
         int writelength = ::write(sockfd, msg.c_str(), msg.size());
+        _completeCallback();
     }
     //after write, there is something left
     if(writelen< msg.size()){
@@ -69,4 +74,8 @@ void TcpConnection::sendInLoop(const string &msg) {
 
 void TcpConnection::setMessageCallback(MessageCallback msgCallback) {
     _messageCallback = msgCallback;
+}
+
+void TcpConnection::setCompleteCallback(CompleteCallback completeCallback) {
+    _completeCallback = completeCallback;
 }

@@ -19,10 +19,15 @@ void TcpServer::setMessageCallback(MessageCallbak msgCallback){
     _messageCallback = msgCallback;
 }
 
+void TcpServer::setCompleteCallback(CompleteCallback completeCallback) {
+    _completeCallback = completeCallback;
+}
+
 void TcpServer::onConnected(int clientfd) {
     TcpConnection * conn = new TcpConnection(_loop, clientfd);
     _connMap[clientfd] = conn;
     //set the callback functions
     conn->setMessageCallback(_messageCallback);
+    conn->
 }
 
