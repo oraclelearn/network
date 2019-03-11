@@ -6,12 +6,22 @@
 
 EventLoop::EventLoop() :
         _epoller(new Epoll()),
-        _quit(false) {
+        _quit(false),
+        _wakeupFd(createWakeupFd()),
+        _wakeupChannel(new Channel(this, _wakeupFd)){
 
 }
 
 EventLoop::~EventLoop() {
     _epoller = NULL;
+}
+
+int EventLoop::createWakeupFd() {
+    int eventFd = ::eventfd(0, EFD_NOBLOCK|EFD_CLOEXEC);
+    if(eventFd <0){
+        printf("EventLoop::createWakeupFd error");
+    }
+    return eventFd;
 }
 
 void EventLoop::loop() {
@@ -44,4 +54,22 @@ void EventLoop::doPendingCallback() {
     for( const EventCallback& callback : list){
         callback();
     }
+}
+
+void EventLoop::isInLoopThread() {
+    return true;
+}
+
+void EventLoop::runInLoop(EventCallback ecb) {
+    if(isInLoopThread()) {
+        ecb();
+    }
+    else{
+        queueInLoop(ecb);
+    }
+}
+
+void EventLoop::queueInLoop(EventCallback ecb) {
+    _pendingCallbacks.push_back(ecb);
+
 }

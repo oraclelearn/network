@@ -19,9 +19,21 @@ public:
     void removeChannel(Channel* channel);
     void handleInLoop(EventCallback callback);
 
+    bool isInLoopThread();
+    void runInLoop(EventCallback ecb);
+    void queueInLoop(EventCallback ecb);
+
+    void wakeup();
+
 private:
+    //functions
+    int createWakeupFd();
+
     Epoll* _epoller;
     bool _quit;
+
+    int _wakeupFd;
+    Channel * _wakeupChannel;
 
     EventCallbackList _pendingCallbacks;
 

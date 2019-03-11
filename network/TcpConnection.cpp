@@ -38,12 +38,17 @@ void TcpConnection::handleRead() {
 void TcpConnection::handleWtite() {
     int sockfd = _connChannel->fd();
     if (_connChannel->isWritingCapable()) {
-        int writelength = ::write(sockfd, _outBuffer.peek(),_outBuffer.readableBytes());
-        if(writelength > 0){
-            _outBuffer.retrieve(writelength);
-            if(_outBuffer.readableBytes() == 0){
-                _connChannel->disableWriting();
-                _completeCallback();
+        //buffer has data to write
+        if(_outBuffer.readableBytes() > 0) {
+            int writelength = ::write(sockfd, _outBuffer.peek(), _outBuffer.readableBytes());
+            if (writelength > 0) {
+                //remove the write data from buffer
+                _outBuffer.retrieve(writelength);
+                //if buffer is empty, close the write trigger
+                if (_outBuffer.readableBytes() == 0) {
+                    _connChannel->disableWriting();
+                    _completeCallback();
+                }
             }
         }
     }
@@ -51,6 +56,7 @@ void TcpConnection::handleWtite() {
 
 //called by server when responding to client
 void TcpConnection::send(const string& msg) {
+    //while in loop thread,just send
     sendInLoop(msg);
 }
 
