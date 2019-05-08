@@ -13,9 +13,9 @@ Acceptor::Acceptor(EventLoop *loop, uint16_t port)
 }
 
 void Acceptor::listen() {
-    //启动监听
+    //launch listening
     _acceptorSocket.listen();
-    //将channel置为可读
+    //enable channel reading
     _acceptorChannel.enableReading();
 }
 

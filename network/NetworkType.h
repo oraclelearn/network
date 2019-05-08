@@ -23,6 +23,6 @@ typedef std::function<void(TcpConnection*)> CompleteCallback;
 typedef  std::map<int fd, TcpConnection* conn> ConnectionMap;
 
 static const int MAX_EVENTS = 500;
-static const int MAX_LINE = 1024;
+static const int MAX_LINE = 65536;
 
 #endif //NETWORK_NETWORKTYPE_H

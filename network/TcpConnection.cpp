@@ -4,6 +4,7 @@
 
 #include "TcpConnection.h"
 #include "Channel.h"
+#include "EventLoop.h"
 
 TcpConnection::TcpConnection(EventLoop *loop, int clientfd)
         : _loop(loop),
@@ -29,8 +30,8 @@ void TcpConnection::handleRead() {
     } else {
         string line(tmpstr, readlength);
         _inBuffer.append(line);
-        //call the user functions
-        _messageCallback(this, _inBuffer);
+        //when receive the message, then call the callback directly
+        _messageCallback(this, &_inBuffer);
     }
 }
 
@@ -47,7 +48,10 @@ void TcpConnection::handleWtite() {
                 //if buffer is empty, close the write trigger
                 if (_outBuffer.readableBytes() == 0) {
                     _connChannel->disableWriting();
-                    _completeCallback();
+                    //don't call the callback directly,coz callback will call send, when in loop thread
+                    //it will call callback again when write complete, so put it in queue
+                    //_completeCallback();
+                    _loop->queueInLoop(_completeCallback);
                 }
             }
         }
@@ -57,7 +61,13 @@ void TcpConnection::handleWtite() {
 //called by server when responding to client
 void TcpConnection::send(const string& msg) {
     //while in loop thread,just send
-    sendInLoop(msg);
+    if(_loop->isInLoopThread()){
+        sendInLoop(msg);
+    }
+    else{
+        void (TcpConnection::* fp)(const string &msg) =&TcpConnection::sendInLoop;
+        _loop->queueInLoop(std::bind(fp,this, msg));
+    }
 }
 
 void TcpConnection::sendInLoop(const string &msg) {
@@ -66,7 +76,7 @@ void TcpConnection::sendInLoop(const string &msg) {
     //if buffer is empty, write directly
     if(_outBuffer.readableBytes() == 0){
         int writelength = ::write(sockfd, msg.c_str(), msg.size());
-        _completeCallback();
+        _loop->queueInLoop(_completeCallback);
     }
     //after write, there is something left
     if(writelen< msg.size()){

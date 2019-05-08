@@ -37,7 +37,7 @@ void Epoll::updateChannel(Channel *channel) {
         _channelsMap[fd] = channel;
         update(EPOLL_CTL_ADD, channel);
     }
-        //find in map, modify
+    //find in map, modify
     else {
         _channelsMap[fd] = channel;
         update(EPOLL_CTL_MOD, channel);
@@ -50,7 +50,7 @@ void Epoll::removeChannel(Channel *channel) {
     if (_channelsMap.find(fd) == _channelsMap.end()) {
         return;
     }
-        //find in map, delete
+    //find in map, delete
     else {
         _channelsMap.erase(fd);
         update(EPOLL_CTL_DEL, channel);
