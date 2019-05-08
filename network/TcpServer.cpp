@@ -24,10 +24,12 @@ void TcpServer::setCompleteCallback(CompleteCallback completeCallback) {
 }
 
 void TcpServer::onConnected(int clientfd) {
+
+
     TcpConnection * conn = new TcpConnection(_loop, clientfd);
     _connMap[clientfd] = conn;
     //set the callback functions
     conn->setMessageCallback(_messageCallback);
-    conn->
+    conn->setCompleteCallback(_completeCallback);
 }
 

@@ -18,6 +18,7 @@ typedef std::vector<EventCallback > EventCallbackList;
 typedef std::fucntion<void(int)> NewConnection;
 typedef std::function<void(TcpConnection*, StringBuffer*)> MessageCallback;
 typedef std::function<void(TcpConnection*)> CompleteCallback;
+typedef std::function<void(TcpConnection*)> ConnectionsCallback;
 
 //TcpConnections
 typedef  std::map<int fd, TcpConnection* conn> ConnectionMap;

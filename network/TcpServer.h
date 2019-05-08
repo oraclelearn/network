@@ -16,6 +16,9 @@ public:
     //funcitons
     void start();
     void onConnected(int clientfd);
+
+    //set callback functions
+    void setConnectionCallback(ConnectionsCallback connCallback);
     void setMessageCallback(MessageCallbak msgCallback);
     void setCompleteCallback(CompleteCallback completeCallback);
 
@@ -23,6 +26,8 @@ private:
     EventLoop* _loop;
     Acceptor* _pacceptor;
 
+    //callback functions
+    ConnectionCallback _connectionCallback;
     MessageCallback _messageCallback;
     CompleteCallback  _completeCallback;
 
