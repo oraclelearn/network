@@ -14,6 +14,9 @@ public:
 
     ~TcpConnection();
 
+    //event functions
+    void connectEstablished();
+
     //functions
     void handleRead();
 
@@ -24,6 +27,7 @@ public:
     //on functions
     void setMessageCallback(MessageCallback msgCallback);
     void setCompleteCallback(CompleteCallback completeCallback);
+    void setConnectionCallback(ConnectionsCallback connCallback);
 
 private:
     Channel *_connChannel;
@@ -34,6 +38,7 @@ private:
 
     MessageCallback _messageCallback;
     CompleteCallback _completeCallback;
+    ConnectionsCallback _connCallback;
 
     //functions
     void sendInLoop(const string& msg);

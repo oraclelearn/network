@@ -58,6 +58,11 @@ void TcpConnection::handleWtite() {
     }
 }
 
+//called by server when connection established, enable reading
+void TcpConnection::connectEstablished(){
+    _connChannel->enableReading();
+}
+
 //called by server when responding to client
 void TcpConnection::send(const string& msg) {
     //while in loop thread,just send
@@ -93,4 +98,8 @@ void TcpConnection::setMessageCallback(MessageCallback msgCallback) {
 
 void TcpConnection::setCompleteCallback(CompleteCallback completeCallback) {
     _completeCallback = completeCallback;
+}
+
+void TcpConnection::setConnectionCallback(ConnectionsCallback connCallback) {
+    _connCallback = connCallback;
 }

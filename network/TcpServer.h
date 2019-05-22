@@ -10,7 +10,7 @@
 
 class TcpServer {
 public:
-    TcpServer(EventLoop* loop, uint16_t port);
+    TcpServer(uint16_t port);
     ~TcpServer();
 
     //funcitons
@@ -23,17 +23,21 @@ public:
     void setCompleteCallback(CompleteCallback completeCallback);
 
 private:
-    EventLoop* _loop;
+    //main loop
+    EventLoop* _pmainloop;
+    //loop threads for ios
+    EventLoopThreadPool* _peventThreadPool;
+
+    //acceptor
     Acceptor* _pacceptor;
+
+    //save the connections
+    ConnectionMap _connMap;
 
     //callback functions
     ConnectionCallback _connectionCallback;
     MessageCallback _messageCallback;
     CompleteCallback  _completeCallback;
-
-    //save the connections
-    ConnectionMap _connMap;
-
 };
 
 
