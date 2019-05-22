@@ -17,17 +17,17 @@ public:
     //event functions
     void connectEstablished();
 
-    //functions
+    //internal handle functions
     void handleRead();
-
     void handleWtite();
 
-    void send(const string &msg);
-
-    //on functions
+    //callback functions, to call the user callback functions
     void setMessageCallback(MessageCallback msgCallback);
     void setCompleteCallback(CompleteCallback completeCallback);
     void setConnectionCallback(ConnectionsCallback connCallback);
+
+    //user functions, user use them to send back message
+    void send(const string &msg);
 
 private:
     Channel *_connChannel;

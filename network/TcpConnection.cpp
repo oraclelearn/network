@@ -51,7 +51,7 @@ void TcpConnection::handleWtite() {
                     //don't call the callback directly,coz callback will call send, when in loop thread
                     //it will call callback again when write complete, so put it in queue
                     //_completeCallback();
-                    _loop->queueInLoop(_completeCallback);
+                    _loop->queueInLoop(std::bind(_completeCallback,this));
                 }
             }
         }
@@ -59,8 +59,12 @@ void TcpConnection::handleWtite() {
 }
 
 //called by server when connection established, enable reading
+//called by the main loop, one thread, so just call the callback function
 void TcpConnection::connectEstablished(){
+    //enable the poller reading
     _connChannel->enableReading();
+    //call the user callback functions
+    _connCallback(this);
 }
 
 //called by server when responding to client

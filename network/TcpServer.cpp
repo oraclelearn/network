@@ -40,7 +40,7 @@ void TcpServer::onConnected(int clientfd) {
     conn->setMessageCallback(_messageCallback);
     conn->setCompleteCallback(_completeCallback);
 
-    //call the
+    //call the connection established
     _pmainloop->runInLoop(std:;bind(TcpConnection::connectEstablished, conn));
 }
 

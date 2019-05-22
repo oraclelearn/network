@@ -27,6 +27,7 @@ void Acceptor::handleRead() {
     struct sockaddr_in clientSockfd;
     int clientfd = _acceptorSocket.accept();
     if (clientfd > 0) {
+        //callback Tcpserver::onConnected
         if (_newConnection) {
             _newConnection(clientfd);
         } else {
