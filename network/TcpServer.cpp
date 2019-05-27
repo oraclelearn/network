@@ -8,7 +8,7 @@
 void TcpServer::TcpServer(uint16_t port){
     _pmainloop = new EventLoop();
     _pacceptor = new Acceptor(_pmainloop, port);
-    _pacceptor->setNewConnection(std::bind(TcpServer::onConnected, this, _1));
+    _pacceptor->setNewConnection(std::bind(&TcpServer::onConnected, this, _1));
 }
 
 void TcpServer::start() {
@@ -41,6 +41,6 @@ void TcpServer::onConnected(int clientfd) {
     conn->setCompleteCallback(_completeCallback);
 
     //call the connection established
-    _pmainloop->runInLoop(std:;bind(TcpConnection::connectEstablished, conn));
+    _pmainloop->runInLoop(std:;bind(&TcpConnection::connectEstablished, conn));
 }
 

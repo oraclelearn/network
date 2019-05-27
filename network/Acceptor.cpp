@@ -9,7 +9,7 @@ Acceptor::Acceptor(EventLoop *loop, uint16_t port)
           _acceptorSocket(),
           _acceptorChannel(loop, acceptorSocket_.fd()) {
     acceptorSocket_.bindAddress(port);
-    _acceptorChannel.setReadCallback(std::bind(Acceptor::handleRead()), this);
+    _acceptorChannel.setReadCallback(std::bind(&Acceptor::handleRead()), this);
 }
 
 void Acceptor::listen() {

@@ -74,8 +74,8 @@ void TcpConnection::send(const string& msg) {
         sendInLoop(msg);
     }
     else{
-        void (TcpConnection::* fp)(const string &msg) =&TcpConnection::sendInLoop;
-        _loop->queueInLoop(std::bind(fp,this, msg));
+        //void (TcpConnection::* fp)(const string &msg) =&TcpConnection::sendInLoop;
+        _loop->queueInLoop(std::bind(&TcpConnection::sendInLoop,this, msg));
     }
 }
 
