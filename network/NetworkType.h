@@ -26,4 +26,7 @@ typedef  std::map<int fd, TcpConnection* conn> ConnectionMap;
 static const int MAX_EVENTS = 500;
 static const int MAX_LINE = 65536;
 
+//Thread
+typedef std::function<void()> ThreadFunc;
+
 #endif //NETWORK_NETWORKTYPE_H

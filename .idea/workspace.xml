@@ -9,16 +9,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4041b13d-2373-4c77-adba-85d226acfe7b" name="Default Changelist" comment="update on 522">
-      <change afterPath="$PROJECT_DIR$/network/EventLoopThread.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/network/EventLoopThread.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/network/Thread.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/network/Thread.h" afterDir="false" />
+    <list default="true" id="4041b13d-2373-4c77-adba-85d226acfe7b" name="Default Changelist" comment="add thread and threadpool">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/CurrentThread.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/CurrentThread.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/MutexLock.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/ThreadData.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/ThreadPool.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/ThreadPool.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Acceptor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/Acceptor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/TcpConnection.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/TcpConnection.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/TcpServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/TcpServer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/NetworkType.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/NetworkType.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/Thread.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/Thread.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/Thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/Thread.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,12 +33,63 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/TcpServer.cpp">
+        <entry file="file://$PROJECT_DIR$/network/ThreadPool.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+            <state relative-caret-position="80">
+              <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/ThreadPool.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="80" column="22" lean-forward="true" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
               <folding>
-                <element signature="e#41#63#0" expanded="true" />
+                <element signature="e#41#64#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/network/Thread.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+              <folding>
+                <element signature="e#41#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/MutexLock.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="704">
+              <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/NetworkType.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="29" column="40" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/TcpConnection.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+              <folding>
+                <element signature="e#106#131#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/TcpConnection.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-638">
-              <caret line="46" column="26" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="26" />
+            <state relative-caret-position="506">
+              <caret line="23" column="53" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="53" />
               <folding>
                 <element signature="e#41#67#0" expanded="true" />
               </folding>
@@ -54,68 +108,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/Thread.cpp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/network/Thread.h">
+        <entry file="file://$PROJECT_DIR$/network/TcpServer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/EventLoopThread.cpp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/EventLoopThread.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/EventLoop.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="72" column="21" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/EventLoop.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="37" column="21" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/NetworkType.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/Acceptor.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="572">
+              <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
               <folding>
-                <element signature="e#40#59#0" expanded="true" />
+                <element signature="e#41#63#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/ThreadData.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-66">
+              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/CurrentThread.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -124,12 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bindAddress</find>
-      <find>MAX_EVENTS</find>
-      <find>close</find>
-      <find>memset</find>
-      <find>MAX_LINE</find>
-      <find>doPendingCallback</find>
       <find>MessageCallback</find>
       <find>_messageCallback</find>
       <find>loop-&gt;update</find>
@@ -154,6 +165,12 @@
       <find>onMessage</find>
       <find>setReadCallback</find>
       <find>_pendingCallbacks</find>
+      <find>CurrentThread</find>
+      <find>_thread</find>
+      <find>__thread</find>
+      <find>globalRun</find>
+      <find>t_cachedTid</find>
+      <find>runInThread</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,21 +195,28 @@
         <option value="$PROJECT_DIR$/network/EventLoop.h" />
         <option value="$PROJECT_DIR$/network/EventLoop.cpp" />
         <option value="$PROJECT_DIR$/network/Epoll.cpp" />
-        <option value="$PROJECT_DIR$/network/NetworkType.h" />
         <option value="$PROJECT_DIR$/network/TcpServer.h" />
         <option value="D:/学习/muduo学习/muduo-master/examples/pingpong/server.cc" />
         <option value="$PROJECT_DIR$/network/TcpConnection.h" />
         <option value="$PROJECT_DIR$/network/Acceptor.cpp" />
         <option value="$PROJECT_DIR$/network/TcpServer.cpp" />
         <option value="$PROJECT_DIR$/network/TcpConnection.cpp" />
+        <option value="$PROJECT_DIR$/network/MutexLock.h" />
+        <option value="$PROJECT_DIR$/network/CurrentThread.cpp" />
+        <option value="$PROJECT_DIR$/network/CurrentThread.h" />
+        <option value="$PROJECT_DIR$/network/ThreadData.h" />
         <option value="$PROJECT_DIR$/network/Thread.h" />
+        <option value="$PROJECT_DIR$/network/NetworkType.h" />
+        <option value="$PROJECT_DIR$/network/ThreadPool.h" />
+        <option value="$PROJECT_DIR$/network/ThreadPool.cpp" />
+        <option value="$PROJECT_DIR$/network/Thread.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
+    <option name="x" value="542" />
+    <option name="y" value="193" />
     <option name="width" value="1346" />
     <option name="height" value="728" />
   </component>
@@ -201,6 +225,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -228,13 +253,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -293,6 +317,10 @@
       <workItem from="1558521478639" duration="171000" />
       <workItem from="1558521669307" duration="62000" />
       <workItem from="1558591583600" duration="5305000" />
+      <workItem from="1558955516664" duration="35000" />
+      <workItem from="1559718076284" duration="6545000" />
+      <workItem from="1560390187725" duration="9004000" />
+      <workItem from="1560695764069" duration="9746000" />
     </task>
     <task id="LOCAL-00001" summary="first day code">
       <created>1549982355585</created>
@@ -427,19 +455,27 @@
       <option name="project" value="LOCAL" />
       <updated>1558521493860</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add thread">
+      <created>1558955538801</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1558955538801</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107173000" />
+    <option name="totallyTimeSpent" value="132503000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19667171" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20877458" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" sideWeight="0.49924356" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -449,9 +485,9 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3287037" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.3295082" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49924356" weight="0.3295082" />
-      <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.49319214" visible="true" weight="0.101639345" />
+      <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.49546143" weight="0.101639345" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -474,76 +510,11 @@
     <MESSAGE value="isinloop" />
     <MESSAGE value="push later" />
     <MESSAGE value="update on 522" />
-    <option name="LAST_COMMIT_MESSAGE" value="update on 522" />
+    <MESSAGE value="add thread" />
+    <MESSAGE value="add thread and threadpool" />
+    <option name="LAST_COMMIT_MESSAGE" value="add thread and threadpool" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Util/InetAddress.cpp" />
-    <entry file="file://$PROJECT_DIR$/Util/InetAddress.h" />
-    <entry file="file://D:/学习/muduo学习/muduo-master/muduo/net/SocketsOps.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-370">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Epoll.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="29" column="41" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="41" />
-          <folding>
-            <element signature="e#40#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/学习/muduo学习/mini-muduo-0.05/EventLoop.cc" />
-    <entry file="file://$PROJECT_DIR$/network/StringBuffer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/学习/muduo学习/mini-muduo-master/TcpConnection.cc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Channel.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/学习/muduo学习/mini-muduo-master/TcpServer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-254" />
-      </provider>
-    </entry>
-    <entry file="file://D:/学习/muduo学习/mini-muduo-master/TcpServer.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Socket.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Socket.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/学习/muduo学习/muduo-master/muduo/net/Socket.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -685,16 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/TcpConnection.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding>
-            <element signature="e#106#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/学习/muduo学习/muduo-master/examples/sudoku/server_prod.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="968">
@@ -705,17 +666,38 @@
     <entry file="file://D:/学习/muduo学习/muduo-master/muduo/net/EventLoopThreadPool.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/EventLoop.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="72" column="21" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/network/Channel.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="27" column="24" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Acceptor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/EventLoopThread.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/EventLoop.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1584">
+          <caret line="72" column="21" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/EventLoop.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -729,64 +711,155 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/Acceptor.cpp">
+    <entry file="file://D:/学习/muduo学习/mini-muduo-master/CurrentThread.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/TcpServer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
-          <folding>
-            <element signature="e#41#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/EventLoopThread.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/TcpConnection.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-638">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="26" />
-          <folding>
-            <element signature="e#41#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/NetworkType.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/EventLoop.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="21" />
+        <state relative-caret-position="-30">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/EventLoopThread.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/Thread.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://D:/学习/muduo学习/mini-muduo-master/ThreadPool.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-316" />
+      </provider>
+    </entry>
+    <entry file="file://D:/学习/muduo学习/mini-muduo-master/ThreadPool.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198" />
+      </provider>
+    </entry>
+    <entry file="file://D:/学习/muduo学习/muduo-master/muduo/base/Thread.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="53" column="28" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/学习/muduo学习/muduo-master/muduo/base/Thread.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/学习/muduo学习/mini-muduo-master/Thread.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8" />
+      </provider>
+    </entry>
+    <entry file="file://D:/学习/muduo学习/mini-muduo-master/Thread.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/学习/muduo学习/mini-muduo-master/TcpServer.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/CurrentThread.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Thread.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="352">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/TcpConnection.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#106#131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/TcpConnection.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="53" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="53" />
+          <folding>
+            <element signature="e#41#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/TcpServer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+          <folding>
+            <element signature="e#41#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/CurrentThread.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/NetworkType.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="29" column="40" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/MutexLock.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ThreadData.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ThreadPool.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ThreadPool.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="80" column="22" lean-forward="true" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+          <folding>
+            <element signature="e#41#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Thread.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
