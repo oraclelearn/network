@@ -4,7 +4,7 @@
 
 #include "ThreadPool.h"
 #include "Thread.cpp"
-#include "MutexLock.h"
+#include "MutexLockGuard.h"
 
 ThreadPool::ThreadPool(string poolName) : _name(poolName),
                                           _running(false),
@@ -54,7 +54,7 @@ void ThreadPool::runInThread()
 void ThreadPool::run(ThreadFunc task)
 {
     //lock
-    MutexLock lock(_mutex);
+    MutexLockGuard lock(_mutex);
     //if queue is full
     while(_queue.size() >= _maxNumTask)
     {
@@ -69,7 +69,7 @@ void ThreadPool::run(ThreadFunc task)
 ThreadFunc ThreadPool::take()
 {
     //lock
-    MutexLock lock(_mutex);
+    MutexLockGuard lock(_mutex);
     //if queue is empty
     while(_queue.empty() && _running)
     {

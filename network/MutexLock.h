@@ -8,49 +8,57 @@
 class MutexLock : boost::noncopyable
 {
 public:
-    MutexLock():holder_(0)
+    MutexLock() : _holder(0)
     {
-        MCHECK(pthread_mutex_init(&mutex_, NULL));
+        pthread_mutex_init(&_mutex, NULL);
     }
+
     ~MutexLock()
     {
-        assert(holder_ == 0);
-        MCHECK(pthread_mutex_destroy(&mutex_));
+        assert(_holder == 0);
+        pthread_mutex_destroy(&_mutex);
     }
+
     bool isLocketByThisThread() const
     {
-        return holder_ == CurrentThread::tid();
+        return _holder == CurrentThread::tid();
     }
+
     void assertLocked() const
     {
         assert(isLocketByThisThread());
     }
+
     void lock()
     {
-        MCHECK(pthread_mutex_lock(&mutex_));
+        pthread_mutex_lock(&_mutex);
         assignHolder();
     }
+
     void unlock()
     {
         unassignHolder();
-        MCHECK(pthread_mutex_unlock(&mutex_));
+        pthread_mutex_unlock(&_mutex);
     }
-    pthread_mutex_t* getPthreadMutex() /* non-const */　　　
+
+    pthread_mutex_t *getPthreadMutex() /* non-const */　　　
     {
-        return &mutex_;
+        return &_mutex;
     }
-private:
-    void unassignHolder()
-    {
-        holder_ = 0;
-    }
+
     void assignHolder()
     {
-        holder_ = CurrentThread::tid();
+        _holder = CurrentThread::tid();
     }
+
+    void unassignHolder()
+    {
+        _holder = 0;
+    }
+
 private:
-    pthread_mutex_t  mutex_;
-    pid_t holder_;       // 如果不是同一个线程的加锁和解锁则会失败
+    pthread_mutex_t _mutex;
+    pid_t _holder;       // 如果不是同一个线程的加锁和解锁则会失败
 };
 
 #endif //NETWORK_MUTEXLOCK_H

@@ -6,6 +6,7 @@
 #define NETWORK_THREADPOOL_H
 
 #include "NetworkType.h"
+#include "MutexLock.h"
 
 
 class ThreadPool : boost::noncopyable
