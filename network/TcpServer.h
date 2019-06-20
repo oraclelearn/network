@@ -8,28 +8,33 @@
 #include "NetworkType.h"
 #include "EventLoop.h"
 
-class TcpServer {
+class TcpServer
+{
 public:
     TcpServer(uint16_t port);
+
     ~TcpServer();
 
     //funcitons
     void start();
+
     void onConnected(int clientfd);
 
     //set callback functions
     void setConnectionCallback(ConnectionsCallback connCallback);
+
     void setMessageCallback(MessageCallbak msgCallback);
+
     void setCompleteCallback(CompleteCallback completeCallback);
 
 private:
     //main loop
-    EventLoop* _pmainloop;
+    EventLoop *_pmainloop;
     //loop threads for ios
-    EventLoopThreadPool* _peventThreadPool;
+    EventLoopThreadPool *_peventThreadPool;
 
     //acceptor
-    Acceptor* _pacceptor;
+    Acceptor *_pacceptor;
 
     //save the connections
     ConnectionMap _connMap;
@@ -37,7 +42,7 @@ private:
     //callback functions
     ConnectionCallback _connectionCallback;
     MessageCallback _messageCallback;
-    CompleteCallback  _completeCallback;
+    CompleteCallback _completeCallback;
 };
 
 
