@@ -18,10 +18,12 @@ typedef std::vector<EventCallback > EventCallbackList;
 typedef std::fucntion<void(int)> NewConnection;
 typedef std::function<void(TcpConnection*, StringBuffer*)> MessageCallback;
 typedef std::function<void(TcpConnection*)> CompleteCallback;
-typedef std::function<void(TcpConnection*)> ConnectionsCallback;
+typedef std::function<void(TcpConnection*)> ConnectionCallback;
+typedef std::function<void(TcpConnection*)> CloseCallback;
 
 //TcpConnections
 typedef  std::map<int fd, TcpConnection* conn> ConnectionMap;
+typedef  std::map<int fd, TcpConnection* conn>::iterator ConnectionMapIter;
 
 static const int MAX_EVENTS = 500;
 static const int MAX_LINE = 65536;

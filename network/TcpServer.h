@@ -7,11 +7,13 @@
 
 #include "NetworkType.h"
 #include "EventLoop.h"
+#include "EventLoopThread.h"
+#include "EventLoopThreadPool.h"
 
 class TcpServer
 {
 public:
-    TcpServer(uint16_t port);
+    TcpServer(EventLoop *loop, int port);
 
     ~TcpServer();
 
@@ -20,23 +22,27 @@ public:
 
     void onConnected(int clientfd);
 
+    void onRemoveConnection(int clientfd);
+
+    //set thread counter
+    void setThreadNum(int num);
+
     //set callback functions
-    void setConnectionCallback(ConnectionsCallback connCallback);
+    void setConnectionCallback(ConnectionCallback connCallback);
 
     void setMessageCallback(MessageCallbak msgCallback);
 
     void setCompleteCallback(CompleteCallback completeCallback);
 
 private:
-    //main loop
-    EventLoop *_pmainloop;
-    //loop threads for ios
-    EventLoopThreadPool *_peventThreadPool;
+    //main loop and eventloop threadpool
+    EventLoop *_mainLoop;
+    EventLoopThreadPool *_workThreadPool;
 
     //acceptor
-    Acceptor *_pacceptor;
+    Acceptor *_acceptor;
 
-    //save the connections
+    //clients connections
     ConnectionMap _connMap;
 
     //callback functions

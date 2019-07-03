@@ -4,7 +4,7 @@
 
 #include "Acceptor.h"
 
-Acceptor::Acceptor(EventLoop *loop, uint16_t port)
+Acceptor::Acceptor(EventLoop *loop, int port)
         : _loop(loop),
           _acceptorSocket(),
           _acceptorChannel(loop, acceptorSocket_.fd()) {

@@ -8,7 +8,8 @@
 #include "StringBuffer.h"
 #include "NetworkType.h"
 
-class TcpConnection {
+class TcpConnection
+{
 public:
     TcpConnection(EventLoop *loop, int clientfd);
 
@@ -19,12 +20,19 @@ public:
 
     //internal handle functions
     void handleRead();
+
     void handleWtite();
+
+    void handleClose();
 
     //callback functions, to call the user callback functions
     void setMessageCallback(MessageCallback msgCallback);
+
     void setCompleteCallback(CompleteCallback completeCallback);
-    void setConnectionCallback(ConnectionsCallback connCallback);
+
+    void setConnectionCallback(ConnectionCallback connCallback);
+
+    void setCloseCallback(CloseCallback closeCallback);
 
     //user functions, user use them to send back message
     void send(const string &msg);
@@ -33,15 +41,18 @@ private:
     Channel *_connChannel;
     EventLoop *_loop;
 
+    int _clientfd;
+
     StringBuffer _inBuffer;
     StringBuffer _outBuffer;
 
     MessageCallback _messageCallback;
     CompleteCallback _completeCallback;
-    ConnectionsCallback _connCallback;
+    ConnectionCallback _connCallback;
+    CloseCallback _closeCallback;
 
     //functions
-    void sendInLoop(const string& msg);
+    void sendInLoop(const string &msg);
 };
 
 

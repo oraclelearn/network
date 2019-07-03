@@ -5,42 +5,96 @@
 #include "TcpServer.h"
 #include "Acceptor.h"
 
-void TcpServer::TcpServer(uint16_t port){
-    _pmainloop = new EventLoop();
-    _pacceptor = new Acceptor(_pmainloop, port);
-    _pacceptor->setNewConnection(std::bind(&TcpServer::onConnected, this, _1));
+//TcpServer constructor and destructor
+TcpServer::TcpServer(EventLoop *loop, int port) : _mainLoop(loop),
+                                                  _workThreadPool(new EventLoopThreadPool(loop)),
+                                                  _acceptor(new Acceptor(loop), port),
+                                                  _connectionCallback(NULL),
+                                                  _completeCallback(NULL),
+                                                  _messageCallback(NULL)
+{
+    _acceptor->setNewConnection(std::bind(&TcpServer::onConnected, this, _1));
 }
 
-void TcpServer::start() {
-    //start the main loop
-    _pmainloop->loop();
-    //active the listener socket
-    _pacceptor->listen();
+TcpServer::~TcpServer()
+{
+    //delete the TcpConnections
+    for (ConnectionMapIter iter : _connMap)
+    {
+        delete iter.second;
+    }
+
+    //delete the acceptor
+    delete _acceptor;
+
+    //delte the workThreadPool
+    delete _workThreadPool;
 }
 
-//set the user callback functions
-void TcpServer::setMessageCallback(MessageCallbak msgCallback){
-    _messageCallback = msgCallback;
+//thread setter
+void TcpServer::setThreadNum(int num)
+{
+    _workThreadPool->setNumThreads(num);
 }
 
-void TcpServer::setCompleteCallback(CompleteCallback completeCallback) {
-    _completeCallback = completeCallback;
+
+//start the server
+void TcpServer::start()
+{
+    //start the worker thread
+    _workThreadPool->start();
+    //start the listener
+    _acceptor->listen();
 }
 
-void TcpServer:;setConnectionCallback(ConnectionsCallback connCallback){
-    _connectionCallback = connCallback;
-}
+void TcpServer::onConnected(int clientfd)
+{
+    //get the workthread from pool
+    EventLoop *ioLoop = _workThreadPool->getNextEventLoop();
 
-//bind to
-void TcpServer::onConnected(int clientfd) {
-    TcpConnection * conn = new TcpConnection(_pmainloop, clientfd);
+    //save the tcp connection into map
+    TcpConnection * conn = new TcpConnection(_mainLoop, clientfd);
     _connMap[clientfd] = conn;
+
     //set the callback functions
     conn->setConnectionCallback(_connectionCallback);
     conn->setMessageCallback(_messageCallback);
     conn->setCompleteCallback(_completeCallback);
+    conn->setCloseCallback(std::bind(&TcpConnection::onRemoveConnection, this, _1, _2));
 
     //call the connection established
-    _pmainloop->runInLoop(std:;bind(&TcpConnection::connectEstablished, conn));
+    ioLoop->runInLoop(std::bind(&TcpConnection::connectEstablished, conn));
 }
+
+void TcpServer::onRemoveConnection(TcpConnection * conn, int clientfd)
+{
+    _mainLoop->runInLoop(std::bind(&TcpServer::onRemoveInLoop, this, conn, clientfd));
+}
+
+void TcpServer::onRemoveInLoop(TcpConnection * conn, int clientfd)
+{
+    //delete the connection from map
+    _connMap.erase(clientfd);
+
+    //delete the connection
+    delete conn;
+}
+
+
+//set the user callback functions
+void TcpServer::setMessageCallback(MessageCallbak msgCallback)
+{
+    _messageCallback = msgCallback;
+}
+
+void TcpServer::setCompleteCallback(CompleteCallback completeCallback)
+{
+    _completeCallback = completeCallback;
+}
+
+void TcpServer::setConnectionCallback(ConnectionCallback connCallback)
+{
+    _connectionCallback = connCallback;
+}
+
 

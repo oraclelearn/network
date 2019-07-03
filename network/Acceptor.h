@@ -11,7 +11,7 @@
 
 class Acceptor {
 
-    Acceptor(EventLoop *loop, uint16_t port);
+    Acceptor(EventLoop *loop, int port);
 
     ~Acceptor();
 
