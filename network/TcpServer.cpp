@@ -31,17 +31,11 @@ TcpServer::~TcpServer()
     delete _workThreadPool;
 }
 
-//thread setter
-void TcpServer::setThreadNum(int num)
-{
-    _workThreadPool->setNumThreads(num);
-}
-
-
 //start the server
-void TcpServer::start()
+void TcpServer::start(int num)
 {
     //start the worker thread
+    _workThreadPool->setNumThreads(num);
     _workThreadPool->start();
     //start the listener
     _acceptor->listen();
@@ -53,35 +47,42 @@ void TcpServer::onConnected(int clientfd)
     EventLoop *ioLoop = _workThreadPool->getNextEventLoop();
 
     //save the tcp connection into map
-    TcpConnection * conn = new TcpConnection(_mainLoop, clientfd);
+    TcpConnection * conn = new TcpConnection(ioLoop, clientfd);
     _connMap[clientfd] = conn;
 
     //set the callback functions
     conn->setConnectionCallback(_connectionCallback);
     conn->setMessageCallback(_messageCallback);
     conn->setCompleteCallback(_completeCallback);
-    conn->setCloseCallback(std::bind(&TcpConnection::onRemoveConnection, this, _1, _2));
+    conn->setCloseCallback(std::bind(&TcpConnection::onRemoveConnection, this, _1));
 
     //call the connection established
     ioLoop->runInLoop(std::bind(&TcpConnection::connectEstablished, conn));
 }
 
-void TcpServer::onRemoveConnection(TcpConnection * conn, int clientfd)
+void TcpServer::onRemoveConnection(int clientfd)
 {
-    _mainLoop->runInLoop(std::bind(&TcpServer::onRemoveInLoop, this, conn, clientfd));
+    _mainLoop->runInLoop(std::bind(&TcpServer::onRemoveInLoop, this, clientfd));
 }
 
-void TcpServer::onRemoveInLoop(TcpConnection * conn, int clientfd)
+void TcpServer::onRemoveInLoop(int clientfd)
 {
     //delete the connection from map
-    _connMap.erase(clientfd);
-
-    //delete the connection
-    delete conn;
+    TcpConnection * conn = _connMap[clientfd];
+    if (conn != null)
+    {
+        _connMap.erase(clientfd);
+        //delete the connection
+        delete conn;
+    }
 }
 
-
 //set the user callback functions
+void TcpServer::setConnectionCallback(ConnectionCallback connCallback)
+{
+    _connectionCallback = connCallback;
+}
+
 void TcpServer::setMessageCallback(MessageCallbak msgCallback)
 {
     _messageCallback = msgCallback;
@@ -92,9 +93,6 @@ void TcpServer::setCompleteCallback(CompleteCallback completeCallback)
     _completeCallback = completeCallback;
 }
 
-void TcpServer::setConnectionCallback(ConnectionCallback connCallback)
-{
-    _connectionCallback = connCallback;
-}
+
 
 

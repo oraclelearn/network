@@ -26,7 +26,7 @@ private:
     //loop pointer
     EventLoop* _loop;
 
-    //socket and channel
+    //acceptor socket and channel
     Socket _acceptorSocket;
     Channel _acceptorChannel;
 

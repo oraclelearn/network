@@ -72,7 +72,7 @@ void TcpConnection::handleWtite()
 
 void TcpConnection::handleClose()
 {
-    _closeCallback(this,_clientfd);
+    _closeCallback(_clientfd);
 }
 
 //called by server when connection established, enable reading

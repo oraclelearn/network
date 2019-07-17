@@ -25,6 +25,9 @@ public:
 
     void handleClose();
 
+    //user functions, user use them to send back message
+    void send(const string &msg);
+
     //callback functions, to call the user callback functions
     void setMessageCallback(MessageCallback msgCallback);
 
@@ -33,9 +36,6 @@ public:
     void setConnectionCallback(ConnectionCallback connCallback);
 
     void setCloseCallback(CloseCallback closeCallback);
-
-    //user functions, user use them to send back message
-    void send(const string &msg);
 
 private:
     Channel *_connChannel;
@@ -46,6 +46,7 @@ private:
     StringBuffer _inBuffer;
     StringBuffer _outBuffer;
 
+    //callback functions
     MessageCallback _messageCallback;
     CompleteCallback _completeCallback;
     ConnectionCallback _connCallback;

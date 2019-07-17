@@ -18,14 +18,11 @@ public:
     ~TcpServer();
 
     //funcitons
-    void start();
+    void start(int num);
 
     void onConnected(int clientfd);
 
     void onRemoveConnection(int clientfd);
-
-    //set thread counter
-    void setThreadNum(int num);
 
     //set callback functions
     void setConnectionCallback(ConnectionCallback connCallback);

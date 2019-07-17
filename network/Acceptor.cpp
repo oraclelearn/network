@@ -7,32 +7,43 @@
 Acceptor::Acceptor(EventLoop *loop, int port)
         : _loop(loop),
           _acceptorSocket(),
-          _acceptorChannel(loop, acceptorSocket_.fd()) {
+          _acceptorChannel(loop, acceptorSocket_.fd())
+{
     acceptorSocket_.bindAddress(port);
     _acceptorChannel.setReadCallback(std::bind(&Acceptor::handleRead()), this);
 }
 
-void Acceptor::listen() {
+Acceptor::~Acceptor() {
+    _acceptorChannel.disableReading();
+    //_acceptorChannel.remove();
+}
+
+void Acceptor::listen()
+{
     //launch listening
     _acceptorSocket.listen();
     //enable channel reading
     _acceptorChannel.enableReading();
 }
 
-void Acceptor::setNewConnection(NewConnection newConnection) {
-    _newConnection = newConnection;
-}
-
-void Acceptor::handleRead() {
-    struct sockaddr_in clientSockfd;
+void Acceptor::handleRead()
+{
     int clientfd = _acceptorSocket.accept();
-    if (clientfd > 0) {
+    if (clientfd > 0)
+    {
         //callback Tcpserver::onConnected
-        if (_newConnection) {
+        if (_newConnection)
+        {
             _newConnection(clientfd);
-        } else {
+        } else
+        {
             ::close(clientfd);
         }
     }
 }
 
+//set callback functions
+void Acceptor::setNewConnection(NewConnection newConnection)
+{
+    _newConnection = newConnection;
+}
