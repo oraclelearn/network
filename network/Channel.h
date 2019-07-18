@@ -5,7 +5,7 @@
 #ifndef NETCONNECT_CHANNEL_H
 #define NETCONNECT_CHANNEL_H
 
-#include "EventLoop.h
+#include "EventLoop.h"
 #include "NetworkType.h"
 
 

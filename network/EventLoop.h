@@ -1,12 +1,12 @@
 //
 // Created by chuli on 2019/2/12.
 //
-
-#include "NetworkType.h"
-
 #ifndef NETWORK_EVENTLOOP_H
 #define NETWORK_EVENTLOOP_H
 
+#include "NetworkType.h"
+#include "Channel.h"
+#include "Epoll.h"
 
 class EventLoop {
 public:

@@ -7,9 +7,9 @@
 
 #include "StringBuffer.h"
 #include "NetworkType.h"
+#include "EventLoop.h"
 
-class TcpConnection
-{
+class TcpConnection {
 public:
     TcpConnection(EventLoop *loop, int clientfd);
 

@@ -8,6 +8,8 @@
 #include <vector>
 #include <map>
 #include <functional>
+#include "Channel.h"
+#include "TcpConnection.h"
 
 //Channel List
 typedef std::vector<Channel*> ChannelList;

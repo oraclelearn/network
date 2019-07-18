@@ -5,6 +5,9 @@
 #ifndef NETWORK_STRINGBUFFER_H
 #define NETWORK_STRINGBUFFER_H
 
+#include <string>
+using namespace std;
+
 
 class StringBuffer
 {

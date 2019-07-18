@@ -9,7 +9,7 @@
 
 
 class Socket {
-
+public:
     Socket();
 
     //getter
