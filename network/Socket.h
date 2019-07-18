@@ -5,6 +5,8 @@
 #ifndef NETCONNECT_SOCKET_H
 #define NETCONNECT_SOCKET_H
 
+#include <cstdint>
+
 
 class Socket {
 

@@ -5,6 +5,10 @@
 #ifndef NETWORK_NETWORKTYPE_H
 #define NETWORK_NETWORKTYPE_H
 
+#include <vector>
+#include <map>
+#include <functional>
+
 //Channel List
 typedef std::vector<Channel*> ChannelList;
 typedef std::map<int, Channel*> ChannelMap;

@@ -5,10 +5,14 @@
 #ifndef NETCONNECT_CHANNEL_H
 #define NETCONNECT_CHANNEL_H
 
+#include "EventLoop.h
+#include "NetworkType.h"
+
 
 class Channel {
 public:
     Channel(Eventloop *loop, int socketfd);
+    ~Channel();
 
     //functions
     void enableReading();
