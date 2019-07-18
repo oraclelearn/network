@@ -6,19 +6,25 @@
 #define NETWORK_STRINGBUFFER_H
 
 
-class StringBuffer {
+class StringBuffer
+{
 public:
     StringBuffer();
+
     ~StringBuffer();
+
     //functions
     // append the str to this stringbuffer
-    void append(const string& str);
+    void append(const string &str);
+
     //retrieve the string to the len posi, called after write
     void retrieve(int len);
+
     //retrieve all the string, called after write
     string retrieveAsString();
 
-    const char * peek();
+    const char *peek();
+
     int readableBytes();
 
 private:

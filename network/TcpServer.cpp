@@ -73,6 +73,7 @@ void TcpServer::onRemoveInLoop(int clientfd)
     {
         _connMap.erase(clientfd);
         //delete the connection
+        ::close(clientfd);
         delete conn;
     }
 }

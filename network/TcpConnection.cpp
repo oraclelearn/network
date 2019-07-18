@@ -8,8 +8,7 @@
 
 TcpConnection::TcpConnection(EventLoop *loop, int clientfd)
         : _loop(loop),
-          _connChannel(new Channel(loop, clientfd)),
-          _clientfd(clientfd)
+          _connChannel(new Channel(loop, clientfd))
 {
     _connChannel->setReadCallback(std::bind(TcpConnection::handleRead, this));
     _connChannel->setWriteCallback(std::bind(TcpConnection::handleWtite, this));
@@ -27,12 +26,12 @@ void TcpConnection::handleRead()
         if (errno == ECONNRESET)
         {
             printf("Close socket fd for %d", sockfd);
-            ::close(sockfd);
+            handleClose(sockfd);
         }
     } else if (readlength == 0)
     {
         printf("Read 0 from fd %d", sockfd);
-        ::close(sockfd);
+        handleClose(sockfd);
     } else
     {
         string line(tmpstr, readlength);
@@ -43,7 +42,7 @@ void TcpConnection::handleRead()
 }
 
 //when fd can be write, so should be shutdown when write complete
-void TcpConnection::handleWtite()
+void TcpConnection::handleWrite()
 {
     int sockfd = _connChannel->fd();
     if (_connChannel->isWritingCapable())
@@ -70,9 +69,11 @@ void TcpConnection::handleWtite()
     }
 }
 
-void TcpConnection::handleClose()
+void TcpConnection::handleClose(int socketfd)
 {
-    _closeCallback(_clientfd);
+    _connChannel->disableReading();
+    _connChannel->disableWriting();
+    _closeCallback(socketfd);
 }
 
 //called by server when connection established, enable reading
@@ -106,11 +107,16 @@ void TcpConnection::sendInLoop(const string &msg)
     //if buffer is empty, write directly
     if (_outBuffer.readableBytes() == 0)
     {
-        int writelength = ::write(sockfd, msg.c_str(), msg.size());
-        _loop->queueInLoop(_completeCallback);
+        writelen = ::write(sockfd, msg.c_str(), msg.size());
+        //send completely
+        if (writelen == msg.size())
+        {
+            _loop->queueInLoop(std::bind(_completeCallback, this));
+            return;
+        }
     }
     //after write, there is something left
-    if (writelen < msg.size())
+    if (writelen >= 0 && writelen < msg.size())
     {
         _outBuffer.append(msg.substr(writelen, msg.size()));
         if (!_connChannel->isWritingCapable())
@@ -138,4 +144,9 @@ void TcpConnection::setConnectionCallback(ConnectionCallback connCallback)
 void TcpConnection::setCloseCallback(CloseCallback closeCallback)
 {
     _closeCallback = closeCallback;
+}
+
+//add functions
+int TcpConnection::getSocketfd() {
+    return _connChannel->fd();
 }

@@ -21,9 +21,9 @@ public:
     //internal handle functions
     void handleRead();
 
-    void handleWtite();
+    void handleWrite();
 
-    void handleClose();
+    void handleClose(int socketfd);
 
     //user functions, user use them to send back message
     void send(const string &msg);
@@ -37,11 +37,12 @@ public:
 
     void setCloseCallback(CloseCallback closeCallback);
 
+    //get socketfd
+    int getSocketfd();
+
 private:
     Channel *_connChannel;
     EventLoop *_loop;
-
-    int _clientfd;
 
     StringBuffer _inBuffer;
     StringBuffer _outBuffer;
