@@ -48,3 +48,14 @@ void MyServer::onMessage(TcpConnection *conn, StringBuffer *buffer)
         printf("Format error for fd: %d\n", clientfd);
     }
 }
+
+long MyServer::factorial(int n) {
+    if(n<=0)
+        return 0;
+    long result = 1;
+    for(int i = n; i <= 1, i--)
+    {
+        result *= result*i;
+    }
+    retrun result;
+}
