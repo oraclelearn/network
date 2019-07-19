@@ -3,8 +3,7 @@
 //
 
 #include "Acceptor.h"
-#include <netinet/in.h>
-#include <netinet/tcp.h>
+#include <unistd.h>
 
 Acceptor::Acceptor(EventLoop *loop, int port)
         : _loop(loop),
