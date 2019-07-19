@@ -3,14 +3,16 @@
 //
 
 #include "Acceptor.h"
+#include <netinet/in.h>
+#include <netinet/tcp.h>
 
 Acceptor::Acceptor(EventLoop *loop, int port)
         : _loop(loop),
           _acceptorSocket(),
-          _acceptorChannel(loop, acceptorSocket_.fd())
+          _acceptorChannel(loop, _acceptorSocket.fd())
 {
-    acceptorSocket_.bindAddress(port);
-    _acceptorChannel.setReadCallback(std::bind(&Acceptor::handleRead()), this);
+    _acceptorSocket.bindAddress(port);
+    _acceptorChannel.setReadCallback(std::bind(&Acceptor::handleRead, this));
 }
 
 Acceptor::~Acceptor() {

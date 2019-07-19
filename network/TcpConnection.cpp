@@ -5,6 +5,8 @@
 #include "TcpConnection.h"
 #include "Channel.h"
 #include "EventLoop.h"
+#include <netinet/in.h>
+#include <netinet/tcp.h>
 
 TcpConnection::TcpConnection(EventLoop *loop, int clientfd)
         : _loop(loop),
