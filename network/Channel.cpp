@@ -5,7 +5,7 @@
 #include "Channel.h"
 #include <poll.h>
 
-Channel::Channel(Eventloop *loop, int socketfd) :
+Channel::Channel(EventLoop *loop, int socketfd) :
         _loop(loop),
         _socketfd(socketfd),
         _set_events(0),

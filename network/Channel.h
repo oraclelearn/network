@@ -7,10 +7,11 @@
 
 #include "NetworkType.h"
 #include "EventLoop.h"
+class EventLoop;
 
 class Channel {
 public:
-    Channel(Eventloop *loop, int socketfd);
+    Channel(EventLoop* loop, int socketfd);
 
     ~Channel();
 

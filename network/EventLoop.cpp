@@ -3,9 +3,10 @@
 //
 
 #include "EventLoop.h"
+#include <sys/eventfd.h>
 
 EventLoop::EventLoop() :
-        _epoller(new Epoll()),
+        _epoller(new Epoll(this)),
         _quit(false),
         _wakeupFd(createWakeupFd()),
         _wakeupChannel(new Channel(this, _wakeupFd)){
@@ -17,7 +18,7 @@ EventLoop::~EventLoop() {
 }
 
 int EventLoop::createWakeupFd() {
-    int eventFd = ::eventfd(0, EFD_NOBLOCK|EFD_CLOEXEC);
+    int eventFd = ::eventfd(0, EFD_NONBLOCK|EFD_CLOEXEC);
     if(eventFd <0){
         printf("EventLoop::createWakeupFd error");
     }
@@ -27,7 +28,7 @@ int EventLoop::createWakeupFd() {
 void EventLoop::loop() {
     while (!_quit) {
         ChannelList activeChannels;
-        _epoller.poll(&activeChannels);
+        _epoller->poll(activeChannels);
         for (Channel *channel : activeChannels) {
             channel->handleEvent();
         }
@@ -56,7 +57,7 @@ void EventLoop::doPendingCallback() {
     }
 }
 
-void EventLoop::isInLoopThread() {
+bool EventLoop::isInLoopThread() {
     return true;
 }
 
