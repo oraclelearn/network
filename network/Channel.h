@@ -6,8 +6,7 @@
 #define NETCONNECT_CHANNEL_H
 
 #include "NetworkType.h"
-
-class EventLoop;
+#include "EventLoop.h"
 
 class Channel {
 public:
