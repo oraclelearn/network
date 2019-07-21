@@ -6,21 +6,28 @@
 
 #include "NetworkType.h"
 #include "Channel.h"
-#include "Epoll.h"
+#include "Epoller.h"
 
-class EventLoop {
+class EventLoop
+{
 public:
     EventLoop();
+
     ~EventLoop();
 
     //functions
     void loop();
-    void updateChannel(Channel* channel);
-    void removeChannel(Channel* channel);
+
+    void updateChannel(Channel *channel);
+
+    void removeChannel(Channel *channel);
+
     void handleInLoop(EventCallback callback);
 
     bool isInLoopThread();
+
     void runInLoop(EventCallback ecb);
+
     void queueInLoop(EventCallback ecb);
 
     void wakeup();
@@ -29,12 +36,11 @@ private:
     //functions
     int createWakeupFd();
 
-    Epoll* _epoller;
+    //members
+    Epoller *_epoller;
     bool _quit;
-
     int _wakeupFd;
-    Channel * _wakeupChannel;
-
+    Channel *_wakeupChannel;
     EventCallbackList _pendingCallbacks;
 
     //functions

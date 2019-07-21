@@ -6,7 +6,7 @@
 #include <sys/eventfd.h>
 
 EventLoop::EventLoop() :
-        _epoller(new Epoll(this)),
+        _epoller(new Epoller(this)),
         _quit(false),
         _wakeupFd(createWakeupFd()),
         _wakeupChannel(new Channel(this, _wakeupFd)){

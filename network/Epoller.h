@@ -11,11 +11,11 @@
 
 class EventLoop;
 
-class Epoll {
+class  Epoller{
 public:
-    Epoll(EventLoop *loop);
+    Epoller(EventLoop *loop);
 
-    ~Epoll();
+    ~Epoller();
 
     //functions
     void poll(ChannelList &channelList);
