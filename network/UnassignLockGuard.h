@@ -9,6 +9,7 @@
 
 class UnassignLockGurad
 {
+public:
     UnassignLockGurad(MutexLock& mutex): _mutex(mutex)
     {
         _mutex.unassignHolder();
