@@ -9,6 +9,7 @@
 #include "Thread.h"
 #include "MutexLock.h"
 #include "Condition.h"
+#include <memory>
 
 
 class EventLoopThread {

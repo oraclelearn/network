@@ -5,7 +5,11 @@
 #ifndef NETWORK_MUTEXLOCK_H
 #define NETWORK_MUTEXLOCK_H
 
-class MutexLock : boost::noncopyable
+#include <assert.h>
+#include "CurrentThread.h"
+#include<boost/noncopyable.hpp>
+
+class MutexLock
 {
 public:
     MutexLock() : _holder(0)
@@ -41,7 +45,7 @@ public:
         pthread_mutex_unlock(&_mutex);
     }
 
-    pthread_mutex_t *getPthreadMutex() /* non-const */　　　
+    pthread_mutex_t *getPthreadMutex() /* non-const */
     {
         return &_mutex;
     }

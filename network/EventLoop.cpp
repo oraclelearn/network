@@ -3,74 +3,91 @@
 //
 
 #include "EventLoop.h"
+#include "Epoller.h"
 #include <sys/eventfd.h>
 
 EventLoop::EventLoop() :
         _epoller(new Epoller(this)),
         _quit(false),
         _wakeupFd(createWakeupFd()),
-        _wakeupChannel(new Channel(this, _wakeupFd)){
+        _wakeupChannel(new Channel(this, _wakeupFd))
+{
 
 }
 
-EventLoop::~EventLoop() {
+EventLoop::~EventLoop()
+{
     _epoller = NULL;
 }
 
-int EventLoop::createWakeupFd() {
-    int eventFd = ::eventfd(0, EFD_NONBLOCK|EFD_CLOEXEC);
-    if(eventFd <0){
+int EventLoop::createWakeupFd()
+{
+    int eventFd = ::eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
+    if (eventFd < 0)
+    {
         printf("EventLoop::createWakeupFd error");
     }
     return eventFd;
 }
 
-void EventLoop::loop() {
-    while (!_quit) {
+void EventLoop::loop()
+{
+    while (!_quit)
+    {
         ChannelList activeChannels;
         _epoller->poll(activeChannels);
-        for (Channel *channel : activeChannels) {
+        for (Channel *channel : activeChannels)
+        {
             channel->handleEvent();
         }
         doPendingCallback();
     }
 }
 
-void EventLoop::updateChannel(Channel *channel) {
+void EventLoop::updateChannel(Channel *channel)
+{
     _epoller->updateChannel(channel);
 }
 
-void EventLoop::removeChannel(Channel *channel) {
+void EventLoop::removeChannel(Channel *channel)
+{
     _epoller->removeChannel(channel);
 }
 
-void EventLoop::handleInLoop(EventCallback callback) {
+void EventLoop::handleInLoop(EventCallback callback)
+{
     _pendingCallbacks.push_back(callback);
 }
 
-void EventLoop::doPendingCallback() {
+void EventLoop::doPendingCallback()
+{
     EventCallbackList list;
     _pendingCallbacks.swap(list);
 
-    for( const EventCallback& callback : list){
+    for (const EventCallback &callback : list)
+    {
         callback();
     }
 }
 
-bool EventLoop::isInLoopThread() {
+bool EventLoop::isInLoopThread()
+{
     return true;
 }
 
-void EventLoop::runInLoop(EventCallback ecb) {
-    if(isInLoopThread()) {
+void EventLoop::runInLoop(EventCallback ecb)
+{
+    if (isInLoopThread())
+    {
         ecb();
-    }
-    else{
+    } else
+    {
         queueInLoop(ecb);
     }
 }
 
-void EventLoop::queueInLoop(EventCallback ecb) {
+void EventLoop::queueInLoop(EventCallback ecb)
+{
     _pendingCallbacks.push_back(ecb);
 
 }

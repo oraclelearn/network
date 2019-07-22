@@ -6,6 +6,7 @@
 #define NETWORK_EVENTLOOPTHREADPOOL_H
 
 #include "EventLoop.h"
+#include <memory>
 
 
 class EventLoopThreadPool

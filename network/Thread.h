@@ -7,20 +7,29 @@
 
 #include <pthread.h>
 #include "NetworkType.h"
+#include<boost/noncopyable.hpp>
+#include <string>
+using  namespace std;
 
-class Thread : boost::noncopyable{
+class Thread : boost::noncopyable
+{
     Thread(ThreadFunc func, const string name);
+
     virtual ~Thread();
 
     //thread functions
     void start();
+
     void join();
 
     //getter
-    bool isStarted(){ return  _started;};
-    bool isJoined(){ return  _joined;};
-    string& name(){return _name;};
-    pthread_t pthreadId(){ return _pthreadId;}
+    bool isStarted() { return _started; };
+
+    bool isJoined() { return _joined; };
+
+    string &name() { return _name; };
+
+    pthread_t pthreadId() { return _pthreadId; }
 
 private:
     bool _started;

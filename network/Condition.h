@@ -8,9 +8,10 @@
 #include "MutexLock.h"
 #include "UnassignLockGuard.h"
 
-class Condition : boost::noncopyable
+class Condition
 {
-    Condition(MutexLock mutex):_mutex(mutex)
+public:
+    Condition(MutexLock& mutex):_mutex(mutex)
     {
         pthread_cond_init(&_cond, NULL);
     }
@@ -37,7 +38,7 @@ class Condition : boost::noncopyable
     }
 
 private:
-    MutexLock _mutex;
+    MutexLock& _mutex;
     pthread_cond_t _cond;
 };
 

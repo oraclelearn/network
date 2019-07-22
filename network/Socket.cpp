@@ -5,6 +5,8 @@
 #include "Socket.h"
 #include <netinet/in.h>
 #include <netinet/tcp.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
 #include <stdio.h>
 #include <memory.h>
 
@@ -53,7 +55,7 @@ int Socket::accept()
     int connfd = ::accept(_socketfd, (sockaddr * ) & clientaddr, (socklen_t * ) &clilen);
     if (connfd > 0)
     {
-        printf("new connection from client [%s] [%s]", &clientaddr.sin_addr, &clientaddr.sin_port);
+        printf("new connection from client [%s] [%d]", inet_ntoa(clientaddr.sin_addr), ntohs(clientaddr.sin_port));
     } else
     {
         printf("Socket::accept error");

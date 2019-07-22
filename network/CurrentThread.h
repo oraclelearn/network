@@ -5,6 +5,8 @@
 #ifndef NETWORK_CURRENTTHREAD_H
 #define NETWORK_CURRENTTHREAD_H
 
+#include <sys/syscall.h>
+
 namespace CurrentThread
 {
     extern __thread int _cacheTid;

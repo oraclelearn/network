@@ -84,7 +84,7 @@ void TcpServer::setConnectionCallback(ConnectionCallback connCallback)
     _connectionCallback = connCallback;
 }
 
-void TcpServer::setMessageCallback(MessageCallbak msgCallback)
+void TcpServer::setMessageCallback(MessageCallback msgCallback)
 {
     _messageCallback = msgCallback;
 }

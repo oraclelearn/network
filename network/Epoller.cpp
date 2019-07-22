@@ -3,6 +3,7 @@
 //
 
 #include "Epoller.h"
+#include <unistd.h>
 #include <string.h>
 
 Epoller::Epoller(EventLoop *loop)
@@ -31,7 +32,7 @@ void Epoller::poll(ChannelList &channelList)
     }
     for (int i = 0; i < fds; i++)
     {
-        Channel *channel = static_cast<Channel *>_events[i].data.ptr;
+        Channel *channel = static_cast<Channel *>(_events[i].data.ptr);
         channel->set_recevents(_events[i].events);
         channelList.push_back(channel);
     }
@@ -75,12 +76,12 @@ void Epoller::update(int operation, Channel *channel)
     //initialize the event
     struct epoll_event event;
     memset(&event, 0, sizeof(event));
-    event.envents = channel->setevents();
+    event.events = channel->get_setevents();
     event.data.ptr = channel;
     int fd = channel->fd();
 
     //add event to epoll
-    if ((::epoll_ctl(epollfd_, operation, fd, &event) < 0)
+    if (::epoll_ctl(_epollfd, operation, fd, &event) < 0)
     {
         printf("Epoller::update error");
     }

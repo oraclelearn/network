@@ -9,6 +9,7 @@
 #include "EventLoop.h"
 #include "EventLoopThread.h"
 #include "EventLoopThreadPool.h"
+#include "Acceptor.h"
 
 class TcpServer
 {
@@ -27,7 +28,7 @@ public:
     //set callback functions
     void setConnectionCallback(ConnectionCallback connCallback);
 
-    void setMessageCallback(MessageCallbak msgCallback);
+    void setMessageCallback(MessageCallback msgCallback);
 
     void setCompleteCallback(CompleteCallback completeCallback);
 

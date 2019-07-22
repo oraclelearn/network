@@ -6,7 +6,8 @@
 
 #include "NetworkType.h"
 #include "Channel.h"
-#include "Epoller.h"
+
+class Epoller;
 
 class EventLoop
 {
@@ -36,15 +37,16 @@ private:
     //functions
     int createWakeupFd();
 
+    void doPendingCallback();
+
     //members
-    Epoller *_epoller;
     bool _quit;
     int _wakeupFd;
     Channel *_wakeupChannel;
     EventCallbackList _pendingCallbacks;
 
-    //functions
-    void doPendingCallback();
+    Epoller *_epoller;
+
 };
 
 

@@ -9,7 +9,7 @@
 
 class UnassignLockGurad
 {
-    UnassignLockGurad(MutexLock mutex): _mutex(mutex)
+    UnassignLockGurad(MutexLock& mutex): _mutex(mutex)
     {
         _mutex.unassignHolder();
     }
@@ -19,7 +19,7 @@ class UnassignLockGurad
         _mutex.assignHolder();
     }
 private:
-    MutexLock _mutex;
+    MutexLock& _mutex;
 };
 
 #endif //NETWORK_UNASSIGNLOCKGUARD_H
