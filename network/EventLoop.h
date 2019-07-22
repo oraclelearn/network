@@ -33,6 +33,8 @@ public:
 
     void wakeup();
 
+    void quit();
+
 private:
     //functions
     int createWakeupFd();

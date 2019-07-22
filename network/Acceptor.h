@@ -10,7 +10,7 @@
 
 
 class Acceptor {
-
+public:
     Acceptor(EventLoop *loop, int port);
 
     ~Acceptor();

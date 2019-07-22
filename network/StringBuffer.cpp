@@ -26,7 +26,7 @@ int StringBuffer::readableBytes()
 
 void StringBuffer::append(const string &str)
 {
-    _buf.append(data);
+    _buf.append(str);
 }
 
 void StringBuffer::retrieve(int len)

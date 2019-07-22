@@ -29,6 +29,8 @@ private:
     MutexLock _mutex;
     Condition _cond;
 
+    string _name;
+
 };
 
 

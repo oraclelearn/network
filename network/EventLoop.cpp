@@ -91,3 +91,7 @@ void EventLoop::queueInLoop(EventCallback ecb)
     _pendingCallbacks.push_back(ecb);
 
 }
+
+void EventLoop::quit() {
+    _quit = true;
+}

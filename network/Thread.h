@@ -13,6 +13,8 @@ using  namespace std;
 
 class Thread : boost::noncopyable
 {
+public:
+
     Thread(ThreadFunc func, const string name);
 
     virtual ~Thread();

@@ -10,6 +10,7 @@
 #include "EventLoopThread.h"
 #include "EventLoopThreadPool.h"
 #include "Acceptor.h"
+#include "TcpConnection.h"
 
 class TcpServer
 {
@@ -24,6 +25,8 @@ public:
     void onConnected(int clientfd);
 
     void onRemoveConnection(int clientfd);
+
+    void onRemoveInLoop(int clientfd);
 
     //set callback functions
     void setConnectionCallback(ConnectionCallback connCallback);
@@ -41,7 +44,7 @@ private:
     Acceptor *_acceptor;
 
     //clients connections
-    ConnectionMap _connMap;
+    std::map<int, TcpConnection*> _connMap;
 
     //callback functions
     ConnectionCallback _connectionCallback;

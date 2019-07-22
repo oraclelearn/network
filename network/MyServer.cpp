@@ -7,9 +7,9 @@
 
 MyServer::MyServer(EventLoop *loop, int port) : _server(new TcpServer(loop, port))
 {
-    _server->setConnectionCallback(std::bind(&MyServer::onConnection, this, _1));
-    _server->setMessageCallback(std::bind(&MyServer::onMessage, this, _1, _2));
-    _server->setCompleteCallback(std::bind(&MyServer::onComplete, this, _1));
+    _server->setConnectionCallback(std::bind(&MyServer::onConnection, this, placeholders::_1));
+    _server->setMessageCallback(std::bind(&MyServer::onMessage, this, placeholders::_1, placeholders::_2));
+    _server->setCompleteCallback(std::bind(&MyServer::onComplete, this, placeholders::_1));
 }
 
 MyServer::~MyServer()
