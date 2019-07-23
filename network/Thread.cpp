@@ -8,14 +8,13 @@
 
 void *startThread(void *obj)
 {
-    CurrentThread::ThreadData *data = static_cast<CurrentThread::ThreadData>(obj);
+    CurrentThread::ThreadData *data = static_cast<CurrentThread::ThreadData *  >(obj);
     data->runInThread();
 }
 
 Thread::Thread(ThreadFunc func, const string name)
         : _started(false),
           _joined(false),
-          _pid(0),
           _pthreadId(0),
           _func(std::move(func)),
           _name(name)

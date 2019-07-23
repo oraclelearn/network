@@ -3,7 +3,6 @@
 //
 
 #include "ThreadPool.h"
-#include "Thread.cpp"
 #include "MutexLockGuard.h"
 
 ThreadPool::ThreadPool(string poolName) : _name(poolName),

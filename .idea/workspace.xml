@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="netconnect" targetName="netconnect" />
     </generated>
@@ -13,132 +13,111 @@
   <component name="ChangeListManager">
     <list default="true" id="4041b13d-2373-4c77-adba-85d226acfe7b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Acceptor.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/Acceptor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/EventLoop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/EventLoop.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/EventLoop.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/EventLoop.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/EventLoopThread.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/EventLoopThread.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/EventLoopThread.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/EventLoopThread.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/MyServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/MyServer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/NetworkType.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/NetworkType.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/StringBuffer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/StringBuffer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/TcpConnection.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/TcpConnection.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/TcpServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/TcpServer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/TcpServer.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/TcpServer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/Thread.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/CurrentThread.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/CurrentThread.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/Thread.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/Thread.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/ThreadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/ThreadData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/ThreadPool.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/network/ThreadPool.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/ThreadPool.h" beforeDir="false" afterPath="$PROJECT_DIR$/network/ThreadPool.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EventLoop.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/EventLoop.h">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/NetworkType.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-              <folding>
-                <element signature="e#97#121#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="377">
+              <caret line="33" column="53" lean-forward="true" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventLoop.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/network/EventLoop.cpp">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/network/CurrentThread.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+            <state relative-caret-position="176">
+              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TcpConnection.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/TcpConnection.cpp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/ThreadPool.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="129" column="1" selection-start-line="129" selection-start-column="1" selection-end-line="129" selection-end-column="1" />
-              <folding>
-                <element signature="e#41#67#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="440">
+              <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringBuffer.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/StringBuffer.cpp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/CurrentThread.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+            <state relative-caret-position="132">
+              <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventLoopThread.h" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/EventLoopThread.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+            <state relative-caret-position="462">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventLoopThread.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/EventLoopThread.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="19" />
-              <folding>
-                <element signature="e#41#69#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Thread.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/Thread.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventLoopThreadPool.h" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/EventLoopThreadPool.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="28" column="58" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="58" />
+            <state relative-caret-position="-240">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventLoopThreadPool.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/EventLoopThreadPool.cpp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/Thread.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="213">
+              <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/Thread.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
               <folding>
-                <element signature="e#41#73#0" expanded="true" />
+                <element signature="e#41#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TcpServer.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/TcpServer.cpp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/ThreadPool.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="54" column="26" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="26" />
-              <folding>
-                <element signature="e#41#63#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="88">
+              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/ThreadData.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -147,10 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>poll(</find>
-      <find>activeChannels</find>
-      <find>createWakeupFd</find>
-      <find>_epoller</find>
       <find>Epoll</find>
       <find>setevents</find>
       <find>_events</find>
@@ -177,6 +152,10 @@
       <find>_threads</find>
       <find>name</find>
       <find>quit</find>
+      <find>startThread</find>
+      <find>_pthreadId</find>
+      <find>_pid</find>
+      <find>::syscall(SYS_gettid</find>
     </findStrings>
     <replaceStrings>
       <replace>Epollwe</replace>
@@ -197,10 +176,6 @@
         <option value="$PROJECT_DIR$/network/Socket.h" />
         <option value="D:/学习/muduo学习/muduo-master/examples/pingpong/server.cc" />
         <option value="$PROJECT_DIR$/network/CurrentThread.cpp" />
-        <option value="$PROJECT_DIR$/network/ThreadData.h" />
-        <option value="$PROJECT_DIR$/network/Thread.cpp" />
-        <option value="$PROJECT_DIR$/network/ThreadPool.h" />
-        <option value="$PROJECT_DIR$/network/ThreadPool.cpp" />
         <option value="$PROJECT_DIR$/network/MutexLockGuard.h" />
         <option value="$PROJECT_DIR$/network/EventLoopThreadPool.cpp" />
         <option value="$PROJECT_DIR$/network/Acceptor.cpp" />
@@ -216,7 +191,6 @@
         <option value="$PROJECT_DIR$/network/Socket.cpp" />
         <option value="$PROJECT_DIR$/network/Epoller.cpp" />
         <option value="$PROJECT_DIR$/network/EventLoopThreadPool.h" />
-        <option value="$PROJECT_DIR$/network/CurrentThread.h" />
         <option value="$PROJECT_DIR$/network/Condition.h" />
         <option value="$PROJECT_DIR$/network/UnassignLockGuard.h" />
         <option value="$PROJECT_DIR$/network/MutexLock.h" />
@@ -229,29 +203,22 @@
         <option value="$PROJECT_DIR$/network/StringBuffer.cpp" />
         <option value="$PROJECT_DIR$/network/EventLoopThread.h" />
         <option value="$PROJECT_DIR$/network/EventLoopThread.cpp" />
-        <option value="$PROJECT_DIR$/network/Thread.h" />
         <option value="$PROJECT_DIR$/network/EventLoop.h" />
         <option value="$PROJECT_DIR$/network/EventLoop.cpp" />
+        <option value="$PROJECT_DIR$/network/ThreadData.h" />
+        <option value="$PROJECT_DIR$/network/Thread.h" />
+        <option value="$PROJECT_DIR$/network/Thread.cpp" />
+        <option value="$PROJECT_DIR$/network/ThreadPool.cpp" />
+        <option value="$PROJECT_DIR$/network/ThreadPool.h" />
+        <option value="$PROJECT_DIR$/network/CurrentThread.h" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
-  </component>
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -263,11 +230,11 @@
         <subPane>
           <expand>
             <path>
-              <item name="netconnect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="network" type="b2602c69:ProjectViewProjectNode" />
               <item name="network" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="netconnect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="network" type="b2602c69:ProjectViewProjectNode" />
               <item name="network" type="462c0819:PsiDirectoryNode" />
               <item name="network" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -300,8 +267,16 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.netconnect">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all" />
-    <configuration name="netconnect" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="netconnect" TARGET_NAME="netconnect" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="netconnect" RUN_TARGET_NAME="netconnect" />
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="netconnect" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="netconnect" TARGET_NAME="netconnect" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="netconnect" RUN_TARGET_NAME="netconnect">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Build All" />
       <item itemvalue="Application.netconnect" />
@@ -359,7 +334,7 @@
       <workItem from="1563440721238" duration="44000" />
       <workItem from="1563498351086" duration="308000" />
       <workItem from="1563498696116" duration="207000" />
-      <workItem from="1563585673164" duration="11936000" />
+      <workItem from="1563585673164" duration="16172000" />
     </task>
     <task id="LOCAL-00001" summary="first day code">
       <created>1549982355585</created>
@@ -592,71 +567,67 @@
       <option name="project" value="LOCAL" />
       <updated>1563794087582</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="compile">
+      <created>1563794274073</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1563794274073</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205079000" />
+    <option name="totallyTimeSpent" value="209103000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49924356" weight="0.04918033" />
-      <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.494705" weight="0.47928995" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50078124" side_tool="true" visible="true" weight="0.17011835" />
-      <window_info anchor="bottom" id="File Transfer" order="12" sideWeight="0.49921876" visible="true" weight="0.17011835" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49609375" weight="0.0" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3287037" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19453125" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.494705" weight="0.09656301" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Remote Host" order="3" weight="0.3296875" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19818456" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49924356" visible="true" weight="0.04918033" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49924356" weight="0.04918033" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.505295" side_tool="true" weight="0.101639345" />
-      <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3287037" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.505295" side_tool="true" weight="0.101639345" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49924356" visible="true" weight="0.04918033" />
+      <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.494705" weight="0.09656301" />
+      <window_info anchor="bottom" id="File Transfer" order="12" sideWeight="0.49921876" visible="true" weight="0.17011835" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49924356" weight="0.04918033" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Remote Host" order="4" weight="0.3296875" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="CMake" order="12" sideWeight="0.494705" visible="true" weight="0.101639345" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20877458" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49924356" weight="0.04918033" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49924356" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="3" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3287037" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.505295" side_tool="true" visible="true" weight="0.101639345" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49924356" weight="0.04918033" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49924356" weight="0.3295082" />
+      <window_info anchor="bottom" id="CMake" order="12" sideWeight="0.494705" visible="true" weight="0.101639345" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,9 +642,6 @@
         <option value="1" />
       </list>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first day code" />
@@ -716,40 +684,6 @@
     <entry file="file://D:/学习/muduo学习/mini-muduo-master/Mutex.h" />
     <entry file="file://D:/学习/muduo学习/mini-muduo-master/Condition.h" />
     <entry file="file://D:/学习/muduo学习/mini-muduo-master/EchoServer.cc" />
-    <entry file="file://$PROJECT_DIR$/network/ThreadData.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Thread.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="22" />
-          <folding>
-            <element signature="e#41#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/ThreadPool.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/ThreadPool.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-336">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="29" />
-          <folding>
-            <element signature="e#41#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/network/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -791,17 +725,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/CurrentThread.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/network/Condition.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
           <folding>
             <element signature="e#98#120#0" expanded="true" />
           </folding>
@@ -810,8 +737,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/UnassignLockGuard.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        <state relative-caret-position="220">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -822,20 +749,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
     <entry file="file://$PROJECT_DIR$/network/MutexLock.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/CurrentThread.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="42" />
+        <state relative-caret-position="-856">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -872,8 +790,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/TcpServer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="46" column="33" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="33" />
+        <state relative-caret-position="946">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
           <folding>
             <element signature="e#98#122#0" expanded="true" />
           </folding>
@@ -921,20 +839,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/NetworkType.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#102#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/network/TcpServer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="54" column="26" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="26" />
+        <state relative-caret-position="452">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
           <folding>
             <element signature="e#41#63#0" expanded="true" />
           </folding>
@@ -960,8 +868,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/EventLoopThreadPool.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="28" column="58" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="58" />
+        <state relative-caret-position="-240">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -977,15 +885,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/EventLoopThread.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Thread.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="462">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
@@ -1013,6 +914,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/NetworkType.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="33" column="53" lean-forward="true" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Thread.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Thread.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/CurrentThread.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ThreadData.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ThreadPool.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ThreadPool.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/CurrentThread.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
         </state>
       </provider>
     </entry>

@@ -6,6 +6,8 @@
 #define NETWORK_CURRENTTHREAD_H
 
 #include <sys/syscall.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 namespace CurrentThread
 {

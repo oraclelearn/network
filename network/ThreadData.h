@@ -27,7 +27,7 @@ namespace CurrentThread
             {
                 //recall the function
                 _func();
-            } catch (Exception ex)
+            } catch (std::exception ex)
             {
                 abort();
             }
