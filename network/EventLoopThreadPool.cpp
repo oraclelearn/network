@@ -28,7 +28,7 @@ void EventLoopThreadPool::start()
     for (int i = 0; i < _numThreads; ++i)
     {
         char id[32];
-        snprintf(id, sizeof(id), i + 1);
+        snprintf(id, sizeof(id), "%d", i + 1);
         EventLoopThread *thread = new EventLoopThread(id);
         _threads.emplace_back(std::unique_ptr<EventLoopThread>(thread));
         _loops.emplace_back(thread->startLoop());

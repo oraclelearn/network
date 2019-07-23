@@ -26,8 +26,7 @@ private:
 
     long factorial(int n);
 
-private:
-    Tcpserver* _server;
+    TcpServer * _server;
 
 };
 

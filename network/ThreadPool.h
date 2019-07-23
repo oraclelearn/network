@@ -8,13 +8,15 @@
 #include "NetworkType.h"
 #include "MutexLock.h"
 #include "Thread.cpp"
+#include "Condition.h"
 #include <memory>
+#include <deque>
 
 class ThreadPool : boost::noncopyable
 {
 public:
-    ThreadPool();
-    virtual ~ThreadPool();
+    ThreadPool(string poolName);
+    ~ThreadPool();
 
     //operations
     void start(int numThreads);

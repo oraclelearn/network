@@ -15,7 +15,7 @@ ThreadPool::ThreadPool(string poolName) : _name(poolName),
 
 }
 
-virtual ThreadPool::~ThreadPool()
+ThreadPool::~ThreadPool()
 {
     if (_running)
         stop();
@@ -32,7 +32,7 @@ void ThreadPool::start(int numThreads)
     for (int i = 0; i < numThreads; ++i)
     {
         char id[32];
-        snprintf(id, sizeof(id), i + 1);
+        snprintf(id, sizeof(id), "%d", i + 1);
         _threads.emplace_back(new Thread(std::bind(&ThreadPool::runInThread, this), _name + id));
         _threads[i]->start();
     }
