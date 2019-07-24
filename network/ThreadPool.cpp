@@ -32,8 +32,8 @@ void ThreadPool::start(int numThreads)
     for (int i = 0; i < numThreads; ++i)
     {
         char id[32];
-        snprintf(id, sizeof(id), "%d", i + 1);
-        _threads.emplace_back(new Thread(std::bind(&ThreadPool::runInThread, this), _name + id));
+        snprintf(id, sizeof(id), "%s%d", _name.c_str(), i + 1);
+        _threads.emplace_back(new Thread(std::bind(&ThreadPool::runInThread, this), id));
         _threads[i]->start();
     }
 }
@@ -55,7 +55,7 @@ void ThreadPool::run(ThreadFunc task)
     //lock
     MutexLockGuard lock(_mutex);
     //if queue is full
-    while(_queue.size() >= _maxNumTask)
+    while (_queue.size() >= _maxNumTask)
     {
         _notFull.wait();
     }
@@ -70,15 +70,35 @@ ThreadFunc ThreadPool::take()
     //lock
     MutexLockGuard lock(_mutex);
     //if queue is empty
-    while(_queue.empty() && _running)
+    while (_queue.empty() && _running)
     {
         _notEmpty.wait();
     }
 
-    ThreadFunc func = _queue.front();
-    _queue.pop_front();
-    _notFull.notify();
+    if (!_queue.empty())
+    {
+        ThreadFunc func = _queue.front();
+        _queue.pop_front();
+        _notFull.notify();
 
-    return func;
+        return func;
+    } else
+    {
+        return NULL;
+    }
     //unlock
+}
+
+void ThreadPool::stop()
+{
+    //lock
+    {
+        MutexLockGuard lock(_mutex);
+        _running = false;
+        _notEmpty.notifyAll();
+    }
+    for (std::vector<std::unique_ptr<Thread>>::iterator it = _threads.begin(); it != _threads.end();++it)
+    {
+        (*it)->join();
+    }
 }

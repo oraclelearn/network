@@ -7,7 +7,7 @@
 
 #include "NetworkType.h"
 #include "MutexLock.h"
-#include "Thread.cpp"
+#include "Thread.h"
 #include "Condition.h"
 #include <memory>
 #include <deque>

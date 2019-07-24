@@ -5,21 +5,12 @@
 #ifndef NETWORK_CURRENTTHREAD_H
 #define NETWORK_CURRENTTHREAD_H
 
-#include <sys/syscall.h>
-#include <sys/types.h>
-#include <unistd.h>
-
 namespace CurrentThread
 {
     extern __thread int _cacheTid;
 
-    void cacheTid()
-    {
-        if(_cacheTid == 0)
-        {
-            _cacheTid = static_cast<pid_t>(::syscall(SYS_gettid));
-        }
-    }
+    void cacheTid();
+
 
     inline int tid()
     {

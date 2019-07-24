@@ -9,61 +9,79 @@ Channel::Channel(EventLoop *loop, int socketfd) :
         _loop(loop),
         _socketfd(socketfd),
         _set_events(0),
-        _rec_events(0) {
+        _rec_events(0)
+{
 
 }
 
-int Channel::fd() {
+Channel::~Channel()
+{
+}
+
+int Channel::fd()
+{
     return _socketfd;
 }
 
-int Channel::get_setevents() {
+int Channel::get_setevents()
+{
     return _set_events;
 }
 
-bool Channel::isWritingCapable() {
+bool Channel::isWritingCapable()
+{
     return _set_events & POLLOUT;
 }
 
-int Channel::set_recevents(int recevents) {
+int Channel::set_recevents(int recevents)
+{
     _rec_events = recevents;
 }
 
-void Channel::enableReading() {
+void Channel::enableReading()
+{
     _set_events |= (POLLIN | POLLPRI);
     _loop->updateChannel(this);
 }
 
-void Channel::enableWriting() {
+void Channel::enableWriting()
+{
     _set_events |= POLLOUT;
     _loop->updateChannel(this);
 }
 
-void Channel::disableReading() {
+void Channel::disableReading()
+{
     _set_events &= ~(POLLIN | POLLPRI);
     _loop->updateChannel(this);
 }
 
-void Channel::disableWriting() {
+void Channel::disableWriting()
+{
     _set_events &= ~POLLOUT;
     _loop->updateChannel(this);
 }
 
-void Channel::setReadCallback(EventCallback readCallback) {
+void Channel::setReadCallback(EventCallback readCallback)
+{
     _readCallback = readCallback;
 }
 
-void Channel::setWriteCallback(EventCallback writeCallback) {
+void Channel::setWriteCallback(EventCallback writeCallback)
+{
     _writeCallback = writeCallback;
 }
 
-void Channel::handleEvent() {
-    if (_rec_events & (POLLIN | POLLPRI | POLLRDHUP)) {
+void Channel::handleEvent()
+{
+    if (_rec_events & (POLLIN | POLLPRI | POLLRDHUP))
+    {
         if (_readCallback)
             _readCallback();
     }
 
-    if (_rec_events & POLLOUT) {
+    if (_rec_events & POLLOUT)
+    {
         if (_writeCallback)
             _writeCallback();
     }
