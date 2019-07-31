@@ -28,14 +28,12 @@ private:
     //update channel
     void update(int operation, Channel *channel);
 
+    EventLoop *_loop;
     int _epollfd;
     ChannelMap _channelsMap;
 
     //save the events of the poll
     struct epoll_event _events[MAX_EVENTS];
-
-    EventLoop *_loop;
-
 
 };
 

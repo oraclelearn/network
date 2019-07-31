@@ -23,13 +23,11 @@ public:
 private:
     void threadFunc();
 
+    string _name;
     EventLoop* _loop;
-    Thread _thread;
-
     MutexLock _mutex;
     Condition _cond;
-
-    string _name;
+    Thread _thread;
 
 };
 

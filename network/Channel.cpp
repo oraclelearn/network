@@ -33,7 +33,7 @@ bool Channel::isWritingCapable()
     return _set_events & POLLOUT;
 }
 
-int Channel::set_recevents(int recevents)
+void Channel::set_recevents(int recevents)
 {
     _rec_events = recevents;
 }

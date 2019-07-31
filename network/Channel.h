@@ -31,7 +31,7 @@ public:
 
     int get_setevents();
 
-    int set_recevents(int recevents);
+    void set_recevents(int recevents);
 
     //set the callback functions
     void handleEvent();
@@ -42,8 +42,8 @@ public:
 
 private:
     //loop and file discriptor
-    int _socketfd;
     EventLoop *_loop;
+    int _socketfd;
 
     //events
     int _set_events;    //the events that been set

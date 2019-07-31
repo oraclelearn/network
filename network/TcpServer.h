@@ -43,13 +43,13 @@ private:
     //acceptor
     Acceptor *_acceptor;
 
-    //clients connections
-    std::map<int, TcpConnection*> _connMap;
-
     //callback functions
     ConnectionCallback _connectionCallback;
-    MessageCallback _messageCallback;
     CompleteCallback _completeCallback;
+    MessageCallback _messageCallback;
+
+    //clients connections
+    std::map<int, TcpConnection*> _connMap;
 };
 
 

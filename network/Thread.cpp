@@ -10,6 +10,7 @@ void *startThread(void *obj)
 {
     CurrentThread::ThreadData *data = static_cast<CurrentThread::ThreadData *  >(obj);
     data->runInThread();
+    return  NULL;
 }
 
 Thread::Thread(ThreadFunc func, const string name)

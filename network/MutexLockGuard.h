@@ -10,7 +10,7 @@
 class MutexLockGuard : boost::noncopyable   //RAII Locker
 {
 public:
-    MutexLockGuard(MutexLock mutex) : _mutex(_mutex)
+    MutexLockGuard(MutexLock mutex) : _mutex(mutex)
     {
         _mutex.lock();
     }

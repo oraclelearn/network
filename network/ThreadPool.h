@@ -33,9 +33,9 @@ private:
     std::deque<ThreadFunc > _queue;     //consumer tasks
 
     //threadpool status
-    bool _running;
     string _name;
-    int _maxNumTask;
+    bool _running;
+    unsigned int _maxNumTask;
 
     //thread condition variables
     mutable MutexLock _mutex;

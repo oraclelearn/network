@@ -42,12 +42,12 @@ private:
     void doPendingCallback();
 
     //members
+    Epoller *_epoller;
     bool _quit;
     int _wakeupFd;
     Channel *_wakeupChannel;
-    EventCallbackList _pendingCallbacks;
 
-    Epoller *_epoller;
+    EventCallbackList _pendingCallbacks;
 
 };
 

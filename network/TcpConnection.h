@@ -41,8 +41,8 @@ public:
     int getSocketfd();
 
 private:
-    Channel *_connChannel;
     EventLoop *_loop;
+    Channel *_connChannel;
 
     StringBuffer _inBuffer;
     StringBuffer _outBuffer;

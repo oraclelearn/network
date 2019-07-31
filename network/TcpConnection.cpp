@@ -93,7 +93,7 @@ void TcpConnection::send(const string &msg) {
 }
 
 void TcpConnection::sendInLoop(const string &msg) {
-    int writelen = 0;
+    unsigned int writelen = 0;
     int sockfd = _connChannel->fd();
     //if buffer is empty, write directly
     if (_outBuffer.readableBytes() == 0) {
