@@ -10,13 +10,20 @@ EventLoop::EventLoop() :
         _epoller(new Epoller(this)),
         _quit(false),
         _wakeupFd(createWakeupFd()),
-        _wakeupChannel(new Channel(this, _wakeupFd))
+        _wakeupChannel(new Channel(this, _wakeupFd)),
+        _threadId(CurrentThread::tid())
 {
-
+    _wakeupChannel->setReadCallback(std::bind(&EventLoop::handleRead, this));
+    _wakeupChannel->enableReading();
 }
+
+
 
 EventLoop::~EventLoop()
 {
+    _wakeupChannel->disableReading();
+    ::close(_wakeupFd);
+    delete _epoller;
     _epoller = NULL;
 }
 
@@ -59,20 +66,10 @@ void EventLoop::handleInLoop(EventCallback callback)
     _pendingCallbacks.push_back(callback);
 }
 
-void EventLoop::doPendingCallback()
-{
-    EventCallbackList list;
-    _pendingCallbacks.swap(list);
-
-    for (const EventCallback &callback : list)
-    {
-        callback();
-    }
-}
 
 bool EventLoop::isInLoopThread()
 {
-    return true;
+    return _threadId == CurrentThead::tid();
 }
 
 void EventLoop::runInLoop(EventCallback ecb)
@@ -88,10 +85,49 @@ void EventLoop::runInLoop(EventCallback ecb)
 
 void EventLoop::queueInLoop(EventCallback ecb)
 {
+    MutexLockGuard(_mutex);
     _pendingCallbacks.push_back(ecb);
-
+    if(!isInLoopThread() || _pendingCallbacks.size() > 0)
+    {
+        wakeup();
+    }
 }
 
-void EventLoop::quit() {
+void EventLoop::handleRead()
+{
+    unsigned int one = 1;
+    unsigned int n = ::read(_wakeupFd, &one, sizeof(one));
+    if (n != sizeof(one))
+    {
+        printf("EventLoop::handleRead() reads %d bytes instead of 4\n", n);
+    }
+}
+
+void EventLoop::wakeup() {
+    unsigned  int one = 1;
+    unsigned int n = ::write(_wakeupFd, &one, sizeof(one));
+    if(n != sizeof(one))
+    {
+        printf("EventLoop::wakeup() reads %d bytes instead of 4\n", n);
+    }
+}
+
+void EventLoop::doPendingCallback()
+{
+    EventCallbackList list;
+    {
+        MutexLockGuard(_mutex);
+        _pendingCallbacks.swap(list);
+    }
+
+    for (const EventCallback &callback : list)
+    {
+        callback();
+    }
+}
+
+
+void EventLoop::quit()
+{
     _quit = true;
 }

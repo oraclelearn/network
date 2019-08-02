@@ -31,9 +31,10 @@ public:
 
     void queueInLoop(EventCallback ecb);
 
-    void wakeup();
-
     void quit();
+
+    void handleRead();
+    void wakeup();
 
 private:
     //functions
@@ -46,6 +47,8 @@ private:
     bool _quit;
     int _wakeupFd;
     Channel *_wakeupChannel;
+    const pid_t _threadId;
+    MutexLock _mutex;
 
     EventCallbackList _pendingCallbacks;
 
