@@ -4,6 +4,8 @@
 
 #include "EventLoop.h"
 #include "Epoller.h"
+#include "MutexLockGuard.h"
+#include "CurrentThread.h"
 #include <sys/eventfd.h>
 
 EventLoop::EventLoop() :
@@ -69,7 +71,7 @@ void EventLoop::handleInLoop(EventCallback callback)
 
 bool EventLoop::isInLoopThread()
 {
-    return _threadId == CurrentThead::tid();
+    return _threadId == CurrentThread::tid();
 }
 
 void EventLoop::runInLoop(EventCallback ecb)
@@ -85,7 +87,7 @@ void EventLoop::runInLoop(EventCallback ecb)
 
 void EventLoop::queueInLoop(EventCallback ecb)
 {
-    MutexLockGuard(_mutex);
+    MutexLockGuard lock(_mutex);
     _pendingCallbacks.push_back(ecb);
     if(!isInLoopThread() || _pendingCallbacks.size() > 0)
     {
@@ -116,7 +118,7 @@ void EventLoop::doPendingCallback()
 {
     EventCallbackList list;
     {
-        MutexLockGuard(_mutex);
+        MutexLockGuard lock(_mutex);
         _pendingCallbacks.swap(list);
     }
 

@@ -8,18 +8,17 @@
 namespace CurrentThread
 {
     extern __thread int _cacheTid;
-
     void cacheTid();
-
-
     inline int tid()
     {
         if (_cacheTid == 0)
         {
-            cacheTid();
+            _cacheTid = 1;
         }
         return _cacheTid;
     }
+
+
 }
 
 #endif //NETWORK_CURRENTTHREAD_H
