@@ -64,12 +64,12 @@ void Channel::disableWriting()
 
 void Channel::setReadCallback(EventCallback readCallback)
 {
-    _readCallback = readCallback;
+    _readCallback = std::move(readCallback);
 }
 
 void Channel::setWriteCallback(EventCallback writeCallback)
 {
-    _writeCallback = writeCallback;
+    _writeCallback = std::move(writeCallback);
 }
 
 void Channel::handleEvent()

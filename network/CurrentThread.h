@@ -13,7 +13,7 @@ namespace CurrentThread
     {
         if (_cacheTid == 0)
         {
-            _cacheTid = 1;
+            cacheTid();
         }
         return _cacheTid;
     }
