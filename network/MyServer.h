@@ -24,7 +24,7 @@ private:
 
     void onComplete(TcpConnection *conn);
 
-    long factorial(int n);
+    long long factorial(int n);
 
     TcpServer * _server;
 

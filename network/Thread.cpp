@@ -38,7 +38,7 @@ void Thread::start()
     //call the pthread_create
     if (pthread_create(&_pthreadId, NULL, &startThread, data))
     {
-        printf("pthread_create failed");
+        printf("pthread_create failed\n");
         delete data;
     } else
     {
@@ -51,7 +51,7 @@ void Thread::join()
     //thread join
     if (pthread_join(_pthreadId, NULL))
     {
-        printf("pthread_join failed");
+        printf("pthread_join failed\n");
     } else
     {
         _joined = true;

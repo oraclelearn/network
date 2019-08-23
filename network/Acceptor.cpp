@@ -25,7 +25,7 @@ void Acceptor::listen()
     _acceptorSocket.listen();
     //enable channel reading
     _acceptorChannel.enableReading();
-    printf("server listening at port 11111");
+    printf("server listening at port 11111\n");
 }
 
 void Acceptor::handleRead()

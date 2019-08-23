@@ -29,11 +29,11 @@ void TcpConnection::handleRead() {
     int readlength = ::read(sockfd, tmpstr, MAX_LINE);
     if (readlength < 0) {
         if (errno == ECONNRESET) {
-            printf("Close socket fd for %d", sockfd);
+            printf("Close socket fd for %d\n", sockfd);
             handleClose(sockfd);
         }
     } else if (readlength == 0) {
-        printf("Read 0 from fd %d", sockfd);
+        printf("Read 0 from fd %d\n", sockfd);
         handleClose(sockfd);
     } else {
         string line(tmpstr, readlength);

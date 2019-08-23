@@ -34,7 +34,7 @@ int EventLoop::createWakeupFd()
     int eventFd = ::eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
     if (eventFd < 0)
     {
-        printf("EventLoop::createWakeupFd error");
+        printf("EventLoop::createWakeupFd error\n");
     }
     return eventFd;
 }
@@ -97,20 +97,20 @@ void EventLoop::queueInLoop(EventCallback ecb)
 
 void EventLoop::handleRead()
 {
-    unsigned int one = 1;
-    unsigned int n = ::read(_wakeupFd, &one, sizeof(one));
+    uint64_t one = 1;
+    ssize_t n = ::read(_wakeupFd, &one, sizeof(one));
     if (n != sizeof(one))
     {
-        printf("EventLoop::handleRead() reads %d bytes instead of 4\n", n);
+        printf("EventLoop::handleRead() reads %zu bytes instead of 4\n", n);
     }
 }
 
 void EventLoop::wakeup() {
-    unsigned  int one = 1;
-    unsigned int n = ::write(_wakeupFd, &one, sizeof(one));
+    uint64_t one = 1;
+    ssize_t n = ::write(_wakeupFd, &one, sizeof(one));
     if(n != sizeof(one))
     {
-        printf("EventLoop::wakeup() reads %d bytes instead of 4\n", n);
+        printf("EventLoop::wakeup() writes %zu bytes instead of 4\n", n);
     }
 }
 

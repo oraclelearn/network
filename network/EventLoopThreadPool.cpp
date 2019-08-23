@@ -40,7 +40,7 @@ EventLoop *EventLoopThreadPool::getNextEventLoop()
     EventLoop *loop = _baseLoop;
     if (_numThreads > 0)
     {
-        loop = _loops[_numThreads];
+        loop = _loops[_next];
     }
     ++_next;
     if(_next >= _numThreads)

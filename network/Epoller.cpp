@@ -12,7 +12,7 @@ Epoller::Epoller(EventLoop *loop)
 { //create epollfd
     if (_epollfd < 0)
     {
-        printf("Epoller::Epoller error");
+        printf("Epoller::Epoller error\n");
     }
 }
 
@@ -27,7 +27,7 @@ void Epoller::poll(ChannelList &channelList)
     int fds = ::epoll_wait(_epollfd, _events, MAX_EVENTS, -1);
     if (fds < 0)
     {
-        printf("Epoller::poll error");
+        printf("Epoller::poll error\n");
         return;
     }
     for (int i = 0; i < fds; i++)
@@ -83,6 +83,6 @@ void Epoller::update(int operation, Channel *channel)
     //add event to epoll
     if (::epoll_ctl(_epollfd, operation, fd, &event) < 0)
     {
-        printf("Epoller::update error");
+        printf("Epoller::update error\n");
     }
 }

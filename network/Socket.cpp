@@ -15,7 +15,7 @@ Socket::Socket()
     _socketfd = ::socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP);
     if (_socketfd < 0)
     {
-        printf("Socket::Socket error");
+        printf("Socket::Socket error\n");
     }
 }
 
@@ -34,7 +34,7 @@ void Socket::bindAddress(uint16_t port)
     int ret = ::bind(_socketfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
     if (ret < 0)
     {
-        printf("Socket::bindAddress error");
+        printf("Socket::bindAddress error\n");
     }
 }
 
@@ -43,7 +43,7 @@ void Socket::listen()
     int ret = ::listen(_socketfd, SOMAXCONN);
     if (ret < 0)
     {
-        printf("Socket::listen error");
+        printf("Socket::listen error\n");
     }
 }
 
@@ -55,10 +55,10 @@ int Socket::accept()
     int connfd = ::accept(_socketfd, (sockaddr * ) & clientaddr, (socklen_t * ) &clilen);
     if (connfd > 0)
     {
-        printf("new connection from client [%s] [%d]", inet_ntoa(clientaddr.sin_addr), ntohs(clientaddr.sin_port));
+        printf("new connection from client [%s] [%d]\n", inet_ntoa(clientaddr.sin_addr), ntohs(clientaddr.sin_port));
     } else
     {
-        printf("Socket::accept error");
+        printf("Socket::accept error\n");
     }
     return connfd;
 }

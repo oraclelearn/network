@@ -7,7 +7,7 @@
 
 int main()
 {
-    printf("start the server");
+    printf("start the server\n");
     //main loop
     EventLoop loop;
     MyServer server(&loop, 11111);
